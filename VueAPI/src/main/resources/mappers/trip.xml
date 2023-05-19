@@ -22,7 +22,7 @@
             AND title LIKE CONCAT('%', #{title}, '%')
             ORDER BY LENGTH(title)
         </if>
-        LIMIT 10
+        LIMIT 30
 <!--         <if test="title == null or title == ''">
             AND latitude BETWEEN #{latitude - 0.05} AND #{latitude + 0.05}
             AND longitude BETWEEN #{longitude - 0.05} AND #{longitude + 0.05}

@@ -26,7 +26,6 @@ public class TripController {
 	@GetMapping("/data")
 	public ResponseEntity<?> data(TripDto trip) {
 		System.out.println(trip);
-		System.out.println(service.search(trip));
 		return new ResponseEntity<List>(service.search(trip), HttpStatus.OK);
 	}
 

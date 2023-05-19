@@ -22,10 +22,10 @@ export default {
     chargers() {
       console.log("충전소", this.chargers);
       this.positions = [];
-      this.chargers.forEach((charger) => {
+      this.chargers.forEach((trip) => {
         let obj = {};
-        obj.title = charger.statNm;
-        obj.latlng = new kakao.maps.LatLng(charger.lat, charger.lng);
+        obj.title = trip.title;
+        obj.latlng = new kakao.maps.LatLng(trip.latitude, trip.longitude);
 
         this.positions.push(obj);
       });
@@ -59,7 +59,7 @@ export default {
       const container = document.getElementById("map");
       const options = {
         center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
+        level: 5,
       };
 
       this.map = new window.kakao.maps.Map(container, options);

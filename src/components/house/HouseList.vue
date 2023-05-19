@@ -12,7 +12,6 @@
 <script>
 import HouseListItem from "@/components/house/HouseListItem";
 import { mapState } from "vuex";
-
 const houseStore = "houseStore";
 
 export default {

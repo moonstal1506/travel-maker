@@ -3,7 +3,7 @@
     <h3 class="underline-orange"><b-icon icon="house-fill"></b-icon> House Service</h3>
     <b-row class="mt-3">
       <b-col cols="12">
-        <the-kakao-map></the-kakao-map>
+        <the-kakao-map :chargers="houses"></the-kakao-map>
       </b-col>
     </b-row>
     <b-row>
@@ -26,6 +26,8 @@ import HouseSearchBar from "@/components/house/HouseSearchBar.vue";
 import HouseList from "@/components/house/HouseList.vue";
 import HouseDetail from "@/components/house/HouseDetail.vue";
 import TheKakaoMap from "@/components/TheKakaoMap.vue";
+import { mapState } from "vuex";
+const houseStore = "houseStore";
 
 export default {
   name: "AppHouse",
@@ -34,6 +36,15 @@ export default {
     HouseList,
     HouseDetail,
     TheKakaoMap,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState(houseStore, ["houses"]),
+    // houses() {
+    //   return this.$store.state.houses;
+    // },
   },
 };
 </script>

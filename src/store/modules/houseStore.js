@@ -60,14 +60,15 @@ const houseStore = {
         }
       );
     },
-    getHouseList: ({ commit }, gugunCode) => {
+    getHouseList: ({ commit }, data) => {
       const params = {
-        gugunCode: gugunCode,
+        gugunCode: data.gugunCode,
+        sidoCode: data.sidoCode,
       };
       houseList(
         params,
         ({ data }) => {
-          console.log(params, data);
+          console.log("여기", params, data);
           commit("SET_HOUSE_LIST", data);
         },
         (error) => {

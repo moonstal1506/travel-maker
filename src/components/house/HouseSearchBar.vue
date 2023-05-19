@@ -52,8 +52,13 @@ export default {
       this.sidoCode = sidoCode;
     },
     selectGugun(gugunCode) {
-      console.log("구군바꼈으니 아파트 찾으러 가자!!!");
-      if (gugunCode) this.getHouseList(gugunCode);
+      console.log("구군바뀌었으니 아파트 찾으러 가자!!!");
+      console.log("sido 코드는 : ", this.sidoCode);
+      let params = {
+        gugunCode,
+        sidoCode: this.sidoCode,
+      };
+      if (gugunCode) this.getHouseList(params);
     },
   },
 };
