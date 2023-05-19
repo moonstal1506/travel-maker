@@ -5,6 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @MapperScan(
-		basePackages = "com.ssafy.vue.model.mapper"
+		basePackages = "com.ssafy.travelmaker.model.mapper"
 )
 public class DatabaseConfiguration {}

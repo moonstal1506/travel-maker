@@ -61,15 +61,13 @@ const houseStore = {
       );
     },
     getHouseList: ({ commit }, gugunCode) => {
-      const SERVICE_KEY = process.env.VUE_APP_APT_DEAL_API_KEY;
       const params = {
-        LAWD_CD: gugunCode,
-        DEAL_YMD: "202207",
-        serviceKey: decodeURIComponent(SERVICE_KEY),
+        gugunCode: gugunCode,
       };
       houseList(
         params,
         ({ data }) => {
+          console.log(params, data);
           commit("SET_HOUSE_LIST", data.response.body.items.item);
         },
         (error) => {

@@ -21,15 +21,12 @@ import lombok.RequiredArgsConstructor;
 public class TripController {
 
 	private final TripService service;
-
-	@GetMapping("/search")
-	public String search(Model model) {
-		return "/trip/place_search";
-	}
-
+	
 	@ResponseBody
 	@GetMapping("/data")
-	public ResponseEntity<?> data(Model model, TripDto trip) {
+	public ResponseEntity<?> data(TripDto trip) {
+		System.out.println(trip);
+		System.out.println(service.search(trip));
 		return new ResponseEntity<List>(service.search(trip), HttpStatus.OK);
 	}
 
