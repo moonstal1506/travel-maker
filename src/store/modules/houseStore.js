@@ -68,7 +68,7 @@ const houseStore = {
         params,
         ({ data }) => {
           console.log(params, data);
-          commit("SET_HOUSE_LIST", data.response.body.items.item);
+          commit("SET_HOUSE_LIST", data);
         },
         (error) => {
           console.log(error);
