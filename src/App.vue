@@ -25,12 +25,8 @@ export default {
   color: #2c3e50;
 }
 
-a.router-link-exact-active {
-  color: rgb(61, 61, 61);
-}
-
-a.router-link-exact-active:hover {
-  text-decoration: none;
-  color: rgb(61, 61, 61);
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 </style>

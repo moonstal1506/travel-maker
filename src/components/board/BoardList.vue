@@ -1,27 +1,39 @@
 <template>
   <b-container class="bv-example-row mt-3">
-    <b-row class="mb-1">
-      <b-col class="col-5"> </b-col>
+    <div class="title">
+      <h3><b-icon icon="journals"></b-icon> 자유 게시판</h3>
+    </div>
+    <b-row class="mb-3">
+      <b-col> </b-col>
       <b-col>
-        <select v-model="key">
-          <option v-for="(k, index) in fields" :key="index" :value="k.key">{{ k.label }}</option>
-        </select>
+        <b-form-select v-model="key">
+          <option v-for="(k, index) in fields" :key="index" :value="k.key">
+            {{ k.label }}
+          </option>
+        </b-form-select>
       </b-col>
       <b-col>
-        <input type="text" v-model="word" />
+        <b-form-input type="text" v-model="word"></b-form-input>
       </b-col>
-      <b-col>
-        <button class="btn btn-warning" @click="search()">검색</button>
-      </b-col>
-      <b-col class="text-right">
-        <b-button class="btn btn-warning" @click="moveWrite()">글쓰기</b-button>
+      <b-col class="text-left">
+        <b-button class="mr-4" variant="outline-success" @click="search()"
+          >검색</b-button
+        >
+        <b-button variant="outline-success" @click="moveWrite()"
+          >글쓰기</b-button
+        >
       </b-col>
     </b-row>
     <b-row>
       <b-col>
         <b-table :items="articles" :fields="fields" @row-clicked="viewArticle">
           <template #cell(subject)="data">
-            <router-link :to="{ name: 'boardview', params: { articleno: data.item.articleno } }">
+            <router-link
+              :to="{
+                name: 'boardview',
+                params: { articleno: data.item.articleno },
+              }"
+            >
               {{ data.item.subject }}
             </router-link>
           </template>
@@ -97,5 +109,10 @@ export default {
 .tdSubject {
   width: 300px;
   text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(33, 33, 33);
 }
 </style>

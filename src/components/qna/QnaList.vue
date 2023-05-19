@@ -9,7 +9,9 @@
       <b-col class="col-5"> </b-col>
       <b-col>
         <select v-model="key">
-          <option v-for="(k, index) in fields" :key="index" :value="k.key">{{ k.label }}</option>
+          <option v-for="(k, index) in fields" :key="index" :value="k.key">
+            {{ k.label }}
+          </option>
         </select>
       </b-col>
       <b-col>
@@ -24,9 +26,20 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-table striped hover :items="articles" :fields="fields" @row-clicked="viewArticle">
+        <b-table
+          striped
+          hover
+          :items="articles"
+          :fields="fields"
+          @row-clicked="viewArticle"
+        >
           <template #cell(subject)="data">
-            <router-link :to="{ name: 'qnaview', params: { articleno: data.item.articleno } }">
+            <router-link
+              :to="{
+                name: 'qnaview',
+                params: { articleno: data.item.articleno },
+              }"
+            >
               {{ data.item.subject }}
             </router-link>
           </template>

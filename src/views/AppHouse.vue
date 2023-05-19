@@ -1,6 +1,8 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
-    <h3 class="underline-orange"><b-icon icon="house-fill"></b-icon> House Service</h3>
+    <div class="title">
+      <h3><b-icon icon="house-fill"></b-icon> 관광지 정보</h3>
+    </div>
     <b-row class="mt-3">
       <b-col cols="12">
         <the-kakao-map :chargers="houses"></the-kakao-map>
@@ -51,6 +53,10 @@ export default {
 <style scoped>
 .underline-orange {
   display: inline-block;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(231, 149, 27, 0.3) 30%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(231, 149, 27, 0.3) 30%
+  );
 }
 </style>

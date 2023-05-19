@@ -1,9 +1,14 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
-    <h3 class="underline-blue"><b-icon icon="lightning-charge"></b-icon> 전기차 충전소 찾기</h3>
+    <div class="title">
+      <h3><b-icon icon="lightning-charge"></b-icon> 전기차 충전소 찾기</h3>
+    </div>
     <b-row class="mt-3">
       <select-sido @select-sido="selectSido"></select-sido>
-      <select-gugun :sidoCode="sidoCode" @select-gugun="selectGugun"></select-gugun>
+      <select-gugun
+        :sidoCode="sidoCode"
+        @select-gugun="selectGugun"
+      ></select-gugun>
     </b-row>
     <b-row class="mt-3">
       <b-col cols="12">
@@ -62,9 +67,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.underline-blue {
-  display: inline-block;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(27, 136, 231, 0.3) 30%);
-}
-</style>
+<style scoped></style>

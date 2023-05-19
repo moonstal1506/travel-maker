@@ -1,8 +1,10 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="warning">
+    <b-navbar toggleable="lg" type="dark" variant="success">
       <b-navbar-brand href="#">
-        <router-link :to="{ name: 'main' }"> EnjoyTrip </router-link>
+        <router-link :to="{ name: 'main' }" class="link">
+          <h2>EnjoyTrip</h2>
+        </router-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -10,18 +12,27 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#">
-            <router-link :to="{ name: 'main' }" class="link"> 메인 </router-link>
-            <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
-            <router-link :to="{ name: 'qna' }" class="m-2 link"> Qna </router-link>
-            <router-link :to="{ name: 'electric' }" class="m-2 link"> 전기 </router-link>
-            <router-link :to="{ name: 'house' }" class="m-2 link"> 여행지 </router-link>
+            <router-link :to="{ name: 'main' }" class="link">
+              메인
+            </router-link>
+            <router-link :to="{ name: 'board' }" class="m-2 link">
+              게시판
+            </router-link>
+            <router-link :to="{ name: 'qna' }" class="m-2 link">
+              Qna
+            </router-link>
+            <router-link :to="{ name: 'electric' }" class="m-2 link">
+              전기
+            </router-link>
+            <router-link :to="{ name: 'house' }" class="m-2 link">
+              여행지
+            </router-link>
           </b-nav-item>
         </b-navbar-nav>
 
         <!-- after login -->
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">
-            <b-avatar variant="primary" v-text="userInfo.userid.charAt(0).toUpperCase()"></b-avatar>
             {{ userInfo.username }}({{ userInfo.userid }})님 환영합니다.
           </b-nav-item>
           <b-nav-item class="align-self-center">
@@ -29,7 +40,9 @@
               >내정보보기</router-link
             >
           </b-nav-item>
-          <b-nav-item class="align-self-center link" @click.prevent="onClickLogout"
+          <b-nav-item
+            class="align-self-center link"
+            @click.prevent="onClickLogout"
             >로그아웃</b-nav-item
           >
         </b-navbar-nav>
@@ -40,12 +53,12 @@
               <b-icon icon="people" font-scale="2"></b-icon>
             </template>
             <b-dropdown-item href="#">
-              <router-link :to="{ name: 'join' }" class="link">
+              <router-link :to="{ name: 'join' }" class="link drop">
                 <b-icon icon="person-circle"></b-icon> 회원가입
               </router-link>
             </b-dropdown-item>
             <b-dropdown-item href="#">
-              <router-link :to="{ name: 'login' }" class="link">
+              <router-link :to="{ name: 'login' }" class="link drop">
                 <b-icon icon="key"></b-icon> 로그인
               </router-link>
             </b-dropdown-item>
@@ -96,7 +109,11 @@ export default {
   width: 120px;
 }
 
-.link {
+.ml-auto .drop {
   text-decoration: none;
+  color: rgb(61, 61, 61);
+}
+.link {
+  color: aliceblue;
 }
 </style>

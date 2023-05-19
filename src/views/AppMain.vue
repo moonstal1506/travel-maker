@@ -2,9 +2,10 @@
   <div>
     <b-img class="main" alt="main" :src="require('@/assets/main.jpg')" />
     <b-container class="bv-example-row mt-3 text-center">
-      <h2 class="post-title">🐱‍🐉여행지 추천</h2>
-      <p class="post-subtitle">여행지 추천해드려요</p>
-
+      <div class="title">
+        <h2 class="post-title">🐱‍🐉여행지 추천</h2>
+        <p class="post-subtitle">여행지 추천해드려요</p>
+      </div>
       <hr class="my-4" />
       <div>
         <div class="row">
@@ -19,7 +20,9 @@
               class="mb-2"
             >
               <b-card-text>{{ card.content }}</b-card-text>
-              <b-button :href="card.link" variant="primary">Go somewhere</b-button>
+              <b-button :href="card.link" variant="success"
+                >Go somewhere</b-button
+              >
             </b-card>
           </div>
         </div>
@@ -95,7 +98,11 @@ export default {
 <style scoped>
 .underline-steelblue {
   display: inline-block;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(72, 190, 233, 0.3) 30%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(72, 190, 233, 0.3) 30%
+  );
 }
 
 div {
