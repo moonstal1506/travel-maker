@@ -1,3 +1,4 @@
+package com.ssafy;
 
 
 import org.springframework.boot.SpringApplication;

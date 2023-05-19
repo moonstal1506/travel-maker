@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- namespace를 Dao의 package를 포함한 인터페이스 명과 동일하게 선언해야 한다.  -->    
+<mapper  namespace='com.ssafy.travelmaker.model.mapper.TripMapper'>
+
+	  <select id="search" parameterType="TripDto" resultType="TripDto">
+        SELECT *
+        FROM attraction_info
+        WHERE 1=1
+        <if test="contentTypeId != 0">
+            AND content_type_id = #{contentTypeId}
+        </if>
+        <if test="sido_code != 0">
+            AND sido_code = #{sido_code}
+        </if>
+        <if test="gugun_code != 0">
+            AND gugun_code = #{gugun_code}
+        </if>
+        <if test="title != null and title != ''">
+            AND title LIKE CONCAT('%', #{title}, '%')
+            ORDER BY LENGTH(title)
+        </if>
+        LIMIT 10
+<!--         <if test="title == null or title == ''">
+            AND latitude BETWEEN #{latitude - 0.05} AND #{latitude + 0.05}
+            AND longitude BETWEEN #{longitude - 0.05} AND #{longitude + 0.05}
+        </if> -->
+    </select>
+	
+</mapper>    
+
+
+
+
