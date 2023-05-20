@@ -1,5 +1,8 @@
 <template>
   <b-container class="mt-4" v-if="userInfo">
+    <div class="title">
+      <h3><b-icon icon="person-lines-fill"></b-icon> 마이페이지</h3>
+    </div>
     <b-row>
       <b-col></b-col>
       <b-col cols="8">

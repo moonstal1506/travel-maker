@@ -1,10 +1,17 @@
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { login, findById, tokenRegeneration, logout } from "@/api/member";
+import {
+  confirmId,
+  login,
+  findById,
+  tokenRegeneration,
+  logout,
+} from "@/api/member";
 
 const memberStore = {
   namespaced: true,
   state: {
+    isDuplicated: false,
     isLogin: false,
     isLoginError: false,
     userInfo: null,
@@ -19,6 +26,9 @@ const memberStore = {
     },
   },
   mutations: {
+    SET_IS_Duplicated: (state, isDuplicated) => {
+      state.isDuplicated = isDuplicated;
+    },
     SET_IS_LOGIN: (state, isLogin) => {
       state.isLogin = isLogin;
     },
@@ -34,6 +44,21 @@ const memberStore = {
     },
   },
   actions: {
+    async confirmId({ commit }, userid) {
+      await confirmId(
+        userid,
+        ({ data }) => {
+          if (data.message === true) {
+            commit("SET_IS_Duplicated", true);
+          } else {
+            commit("SET_IS_Duplicated", false);
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
     async userConfirm({ commit }, user) {
       await login(
         user,
@@ -82,7 +107,10 @@ const memberStore = {
       );
     },
     async tokenRegeneration({ commit, state }) {
-      console.log("토큰 재발급 >> 기존 토큰 정보 : {}", sessionStorage.getItem("access-token"));
+      console.log(
+        "토큰 재발급 >> 기존 토큰 정보 : {}",
+        sessionStorage.getItem("access-token")
+      );
       await tokenRegeneration(
         JSON.stringify(state.userInfo),
         ({ data }) => {
