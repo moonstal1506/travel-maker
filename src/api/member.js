@@ -29,4 +29,8 @@ async function logout(userid, success, fail) {
   await api.get(`/user/logout/${userid}`).then(success).catch(fail);
 }
 
-export { confirmId, register, login, findById, tokenRegeneration, logout };
+async function deleteMember(userid, success, fail) {
+  await api.delete(`/user/delete/${userid}`).then(success).catch(fail);
+}
+
+export { confirmId, register, login, findById, tokenRegeneration, logout , deleteMember};

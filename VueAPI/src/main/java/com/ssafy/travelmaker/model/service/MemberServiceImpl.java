@@ -62,4 +62,9 @@ public class MemberServiceImpl implements MemberService {
         sqlSession.getMapper(MemberMapper.class).deleteRefreshToken(map);
     }
 
+    @Override
+    public void deleteMember(String userid) throws Exception {
+        sqlSession.getMapper(MemberMapper.class).deleteMember(userid);
+    }
+  
 }

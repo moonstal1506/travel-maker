@@ -6,6 +6,7 @@ import {
   findById,
   tokenRegeneration,
   logout,
+  deleteMember,
 } from "@/api/member";
 
 const memberStore = {
@@ -167,6 +168,29 @@ const memberStore = {
         }
       );
     },
+    async deleteMember({ commit, state }) {
+      const userid = state.userInfo.userid; // 현재 로그인한 사용자의 아이디
+
+      await deleteMember(
+        userid,
+        ({ data }) => {
+          if (data.message === "success") {
+            commit("SET_IS_LOGIN", false);
+            commit("SET_USER_INFO", null);
+            commit("SET_IS_VALID_TOKEN", false);
+            // 추가적인 로직 작성
+          } else {
+            console.log("회원 탈퇴 실패");
+            // 실패 처리 로직 작성
+          }
+        },
+        (error) => {
+          console.log(error);
+          // 에러 처리 로직 작성
+        }
+      );
+    },
+
   },
 };
 

@@ -40,4 +40,9 @@
         where userid = #{userid}
     </update>
 
+    <delete id="deleteMember" parameterType="string">
+    delete from ssafy_member
+    where userid = #{userid}
+	</delete>
+
 </mapper>

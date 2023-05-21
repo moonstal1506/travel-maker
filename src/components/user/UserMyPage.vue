@@ -48,7 +48,9 @@
           <b-button variant="outline-info" href="#" class="mr-1"
             >정보수정</b-button
           >
-          <b-button variant="outline-danger" href="#">회원탈퇴</b-button>
+          <b-button variant="outline-danger" @click="deleteUser"
+            >회원탈퇴</b-button
+          >
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -57,7 +59,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 const memberStore = "memberStore";
 
@@ -66,6 +68,26 @@ export default {
   components: {},
   computed: {
     ...mapState(memberStore, ["userInfo"]),
+  },
+  methods: {
+    ...mapActions(memberStore, ["deleteMember", "userLogout"]),
+    async deleteUser() {
+      const confirmed = confirm("정말로 회원 탈퇴하시겠습니까?");
+      if (confirmed) {
+        await this.deleteMember(this.userInfo.userid)
+          .then(() => {
+            alert("회원 탈퇴가 완료되었습니다.");
+            this.movePage();
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("회원 탈퇴 중 오류가 발생했습니다.");
+          });
+      }
+    },
+    movePage() {
+      this.$router.push({ name: "main" });
+    },
   },
 };
 </script>

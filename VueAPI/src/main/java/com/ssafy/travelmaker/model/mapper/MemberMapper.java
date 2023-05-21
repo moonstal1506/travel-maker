@@ -20,4 +20,6 @@ public interface MemberMapper {
     void deleteRefreshToken(Map<String, String> map) throws SQLException;
 
     int register(MemberDto memberDto) throws SQLException;
+    
+    void deleteMember(String userid) throws SQLException;
 }
