@@ -18,6 +18,11 @@
         <b-alert show variant="info">주소 : {{ house.addr1 }} </b-alert>
       </b-col>
     </b-row>
+    <b-row>
+      <b-col>
+        <b-alert show variant="warning">{{ house.overview }} </b-alert>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
