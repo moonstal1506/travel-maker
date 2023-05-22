@@ -22,4 +22,6 @@ public interface MemberMapper {
     int register(MemberDto memberDto) throws SQLException;
     
     void deleteMember(String userid) throws SQLException;
+    
+    boolean updateMember(MemberDto memberDto) throws SQLException;
 }

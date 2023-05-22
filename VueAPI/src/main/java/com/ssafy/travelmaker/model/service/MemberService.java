@@ -11,4 +11,5 @@ public interface MemberService {
 	public Object getRefreshToken(String userid) throws Exception;
 	public void deleRefreshToken(String userid) throws Exception;
 	public void deleteMember(String userid) throws Exception;
+	public boolean updateMember(MemberDto memberDto) throws Exception;
 }
