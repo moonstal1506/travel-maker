@@ -14,17 +14,6 @@
 		</encoder>
 	</appender>
 
-	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>log/log.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>log-%d{yyyy-MM-dd}.log</fileNamePattern> <!-- 파일이름 패턴 -->
-			<maxHistory>30</maxHistory> <!-- 파일 저장 기간 -->
-		</rollingPolicy>
-		<encoder>
-			<pattern>${FILE_LOG_PATTERN}</pattern>
-			<!-- 파일에 기록할 로그 포맷 -->
-		</encoder>
-	</appender>
 	<logger name="com.ssafy.vue.controller" level="debug"/>
 	<logger name="com.ssafy.vue.model.mapper" level="INFO"/>
 	<logger name="com.ssafy.vue.model.service" level="INFO"/>
@@ -32,6 +21,5 @@
 	
 	<root level="debug">
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE" />
 	</root>
 </configuration>

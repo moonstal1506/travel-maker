@@ -20,6 +20,9 @@ const houseStore = {
       state.houses = [];
       state.house = null;
     },
+    CLEAR_DETAIL(state) {
+      state.house = null;
+    },
     SET_SIDO_LIST(state, sidos) {
       sidos.forEach((sido) => {
         state.sidos.push({ value: sido.sidoCode, text: sido.sidoName });
