@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.travelmaker.model.BoardDto;
 import com.ssafy.travelmaker.model.BoardParameterDto;
+import com.ssafy.travelmaker.model.CommentDto;
 import com.ssafy.travelmaker.model.service.BoardService;
 
 import io.swagger.annotations.Api;
@@ -79,6 +80,16 @@ public class BoardController {
 	public ResponseEntity<String> deleteArticle(@PathVariable("articleno") @ApiParam(value = "살제할 글의 글번호.", required = true) int articleno) throws Exception {
 		logger.info("deleteArticle - 호출");
 		if (boardService.deleteArticle(articleno)) {
+			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		}
+		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
+	}
+	
+	@ApiOperation(value = "게시판 댓글작성", notes = "새로운 댓글 정보를 입력한다. 그리고 DB입력 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
+	@PostMapping("/{articleno}/comment")
+	public ResponseEntity<String> writeComment(@RequestBody @ApiParam(value = "댓글 정보.", required = true) CommentDto commentDto) throws Exception {
+		logger.info("writeComment - 호출");
+		if (boardService.writeComment(commentDto)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);

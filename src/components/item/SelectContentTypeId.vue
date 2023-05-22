@@ -13,7 +13,7 @@ export default {
   name: "SelectContentTypeId",
   data() {
     return {
-      contentId: null,
+      contentTypeId: null,
       options: [
         { value: null, text: "관광지 유형" },
         { value: "12", text: "관광지" },

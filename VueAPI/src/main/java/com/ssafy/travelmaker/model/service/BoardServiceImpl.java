@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.travelmaker.model.BoardDto;
 import com.ssafy.travelmaker.model.BoardParameterDto;
+import com.ssafy.travelmaker.model.CommentDto;
 import com.ssafy.travelmaker.model.mapper.BoardMapper;
+import com.ssafy.travelmaker.model.mapper.CommentMapper;
 import com.ssafy.util.PageNavigation;
 
 @Service
@@ -72,5 +74,10 @@ public class BoardServiceImpl implements BoardService {
 	public boolean deleteArticle(int articleno) throws Exception {
 		sqlSession.getMapper(BoardMapper.class).deleteMemo(articleno);
 		return sqlSession.getMapper(BoardMapper.class).deleteArticle(articleno) == 1;
+	}
+
+	@Override
+	public boolean writeComment(CommentDto commentDto) throws Exception {
+		return sqlSession.getMapper(CommentMapper.class).writeComment(commentDto) == 1;
 	}
 }

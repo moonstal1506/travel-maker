@@ -4,6 +4,17 @@
       <h3><b-icon icon="journals"></b-icon> 글보기</h3>
     </div>
     <b-row class="mb-1">
+      <b-col class="text-left">
+        <b-button variant="outline-primary" @click="moveList">목록</b-button>
+      </b-col>
+      <b-col class="text-right" v-if="userInfo.userid === article.userid">
+        <b-button variant="outline-info" size="sm" @click="moveModifyArticle" class="mr-2"
+          >글수정</b-button
+        >
+        <b-button variant="outline-danger" size="sm" @click="deleteArticle">글삭제</b-button>
+      </b-col>
+    </b-row>
+    <b-row class="mb-1">
       <b-col>
         <b-card
           :header-html="`<h3>${article.articleno}.
@@ -18,28 +29,13 @@
         </b-card>
       </b-col>
     </b-row>
-    <b-row class="mb-1">
-      <b-col class="text-left">
-        <b-button variant="outline-primary" @click="moveList">목록</b-button>
-      </b-col>
-      <b-col class="text-right" v-if="userInfo.userid === article.userid">
-        <b-button
-          variant="outline-info"
-          size="sm"
-          @click="moveModifyArticle"
-          class="mr-2"
-          >글수정</b-button
-        >
-        <b-button variant="outline-danger" size="sm" @click="deleteArticle"
-          >글삭제</b-button
-        >
-      </b-col>
-    </b-row>
+
+    <comment-write></comment-write>
   </b-container>
 </template>
 
 <script>
-// import moment from "moment";
+import CommentWrite from "@/components/board/comment/CommentWrite";
 import { getArticle } from "@/api/board";
 import { mapState } from "vuex";
 
@@ -47,6 +43,9 @@ const memberStore = "memberStore";
 
 export default {
   name: "BoardDetail",
+  components: {
+    CommentWrite,
+  },
   data() {
     return {
       article: {},
@@ -55,8 +54,7 @@ export default {
   computed: {
     ...mapState(memberStore, ["userInfo"]),
     message() {
-      if (this.article.content)
-        return this.article.content.split("\n").join("<br>");
+      if (this.article.content) return this.article.content.split("\n").join("<br>");
       return "";
     },
   },
