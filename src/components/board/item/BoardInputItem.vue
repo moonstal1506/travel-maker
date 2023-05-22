@@ -43,19 +43,11 @@
           ></b-form-textarea>
         </b-form-group>
 
-        <b-button
-          type="submit"
-          variant="primary"
-          class="m-1"
-          v-if="this.type === 'register'"
+        <b-button type="submit" variant="primary" class="m-1" v-if="this.type === 'register'"
           >글작성</b-button
         >
-        <b-button type="submit" variant="outline-success" class="m-1" v-else
-          >글수정</b-button
-        >
-        <b-button type="reset" variant="outline-success" class="m-1"
-          >초기화</b-button
-        >
+        <b-button type="submit" variant="outline-success" class="m-1" v-else>글수정</b-button>
+        <b-button type="reset" variant="outline-success" class="m-1">초기화</b-button>
       </b-form>
     </b-col>
   </b-row>
@@ -106,23 +98,16 @@ export default {
       let err = true;
       let msg = "";
       !this.article.userid &&
-        ((msg = "작성자 입력해주세요"),
-        (err = false),
-        this.$refs.userid.focus());
+        ((msg = "작성자 입력해주세요"), (err = false), this.$refs.userid.focus());
       err &&
         !this.article.subject &&
-        ((msg = "제목 입력해주세요"),
-        (err = false),
-        this.$refs.subject.focus());
+        ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
       err &&
         !this.article.content &&
-        ((msg = "내용 입력해주세요"),
-        (err = false),
-        this.$refs.content.focus());
+        ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
 
       if (!err) alert(msg);
-      else
-        this.type === "register" ? this.registArticle() : this.modifyArticle();
+      else this.type === "register" ? this.registArticle() : this.modifyArticle();
     },
     onReset(event) {
       event.preventDefault();

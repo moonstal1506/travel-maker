@@ -44,5 +44,13 @@
     delete from ssafy_member
     where userid = #{userid}
 	</delete>
+	
+	<update id="updateMember" parameterType="memberDto">
+        update ssafy_member
+        set username = #{username},
+            email = #{email},
+            userpwd = #{userpwd}
+        where userid = #{userid}
+    </update>
 
 </mapper>

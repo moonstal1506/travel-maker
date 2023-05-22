@@ -7,6 +7,7 @@ import {
   tokenRegeneration,
   logout,
   deleteMember,
+  updateMember,
 } from "@/api/member";
 
 const memberStore = {
@@ -108,10 +109,7 @@ const memberStore = {
       );
     },
     async tokenRegeneration({ commit, state }) {
-      console.log(
-        "토큰 재발급 >> 기존 토큰 정보 : {}",
-        sessionStorage.getItem("access-token")
-      );
+      console.log("토큰 재발급 >> 기존 토큰 정보 : {}", sessionStorage.getItem("access-token"));
       await tokenRegeneration(
         JSON.stringify(state.userInfo),
         ({ data }) => {
@@ -169,7 +167,7 @@ const memberStore = {
       );
     },
     async deleteMember({ commit, state }) {
-      const userid = state.userInfo.userid; // 현재 로그인한 사용자의 아이디
+      const userid = state.userInfo.userid;
 
       await deleteMember(
         userid,
@@ -190,8 +188,27 @@ const memberStore = {
         }
       );
     },
+    async updateMember({ commit, state }, updatedUserInfo) {
+      const userid = state.userInfo.userid;
 
+      await updateMember(
+        userid,
+        updatedUserInfo,
+        ({ data }) => {
+          if (data.message === "success") {
+            commit("SET_USER_INFO", data.updatedUserInfo);
+            // 추가적인 로직 작성
+          } else {
+            console.log("회원 정보 업데이트 실패");
+            // 실패 처리 로직 작성
+          }
+        },
+        (error) => {
+          console.log(error);
+          // 에러 처리 로직 작성
+        }
+      );
+    },
   },
 };
-
 export default memberStore;

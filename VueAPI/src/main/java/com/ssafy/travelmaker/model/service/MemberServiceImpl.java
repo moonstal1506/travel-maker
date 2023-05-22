@@ -66,5 +66,9 @@ public class MemberServiceImpl implements MemberService {
     public void deleteMember(String userid) throws Exception {
         sqlSession.getMapper(MemberMapper.class).deleteMember(userid);
     }
-  
+    
+    @Override
+    public boolean updateMember(MemberDto memberDto) throws Exception {
+        return sqlSession.getMapper(MemberMapper.class).updateMember(memberDto); // 업데이트 성공 시 true 반환
+    }
 }
