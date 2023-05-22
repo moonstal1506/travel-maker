@@ -20,6 +20,9 @@ const houseStore = {
       state.houses = [];
       state.house = null;
     },
+    CLEAR_DETAIL(state) {
+      state.house = null;
+    },
     SET_SIDO_LIST(state, sidos) {
       sidos.forEach((sido) => {
         state.sidos.push({ value: sido.sidoCode, text: sido.sidoName });
@@ -64,11 +67,11 @@ const houseStore = {
       const params = {
         gugunCode: data.gugunCode,
         sidoCode: data.sidoCode,
+        contentTypeId: data.contentTypeId,
       };
       houseList(
         params,
         ({ data }) => {
-          console.log("여기", params, data);
           commit("SET_HOUSE_LIST", data);
         },
         (error) => {

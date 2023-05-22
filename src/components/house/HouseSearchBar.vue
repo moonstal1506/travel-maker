@@ -1,23 +1,19 @@
 <template>
   <b-row class="mt-4 mb-4 text-center">
-    <!-- <b-col class="sm-3">
-      <b-form-input
-        v-model.trim="dongCode"
-        placeholder="동코드 입력...(예 : 11110)"
-        @keypress.enter="sendKeyword"
-      ></b-form-input>
-    </b-col>
-    <b-col class="sm-3" align="left">
-      <b-button variant="outline-primary" @click="sendKeyword">검색</b-button>
-    </b-col> -->
-    <!-- <b-col class="sm-3">
-      <b-form-select v-model="sidoCode" :options="sidos" @change="gugunList"></b-form-select>
-    </b-col>
-    <b-col class="sm-3">
-      <b-form-select v-model="gugunCode" :options="guguns" @change="searchApt"></b-form-select>
-    </b-col> -->
     <select-sido @select-sido="selectSido"></select-sido>
     <select-gugun :sidoCode="sidoCode" @select-gugun="selectGugun"></select-gugun>
+    <select-content-type-id @select-content-type-id="selectContentTypeId"></select-content-type-id>
+
+    <!-- <div class="input-group">
+      <input
+        id="search-keyword"
+        class="form-control me-2"
+        type="search"
+        placeholder="검색어"
+        aria-label="검색어"
+      />
+      <button id="btn-search" class="btn btn-outline-dark" type="button">검색</button>
+    </div> -->
   </b-row>
 </template>
 
@@ -25,6 +21,7 @@
 import { mapActions, mapMutations } from "vuex";
 import SelectSido from "@/components/item/SelectSido.vue";
 import SelectGugun from "@/components/item/SelectGugun.vue";
+import SelectContentTypeId from "@/components/item/SelectContentTypeId.vue";
 
 const itemStore = "itemStore";
 const houseStore = "houseStore";
@@ -34,10 +31,12 @@ export default {
   components: {
     SelectSido,
     SelectGugun,
+    SelectContentTypeId,
   },
   data() {
     return {
       sidoCode: null,
+      contentTypeId: null,
     };
   },
   computed: {},
@@ -45,20 +44,28 @@ export default {
   methods: {
     ...mapActions(houseStore, ["getHouseList"]),
     ...mapActions(itemStore, ["getGugun"]),
-    ...mapMutations(itemStore, ["CLEAR_GUGUN_LIST"]),
+    ...mapMutations(itemStore, ["CLEAR_DETAIL"]),
     selectSido(sidoCode) {
       // this.CLEAR_GUGUN_LIST();
       // this.getGugun(sidoCode);
       this.sidoCode = sidoCode;
     },
     selectGugun(gugunCode) {
-      console.log("구군바뀌었으니 아파트 찾으러 가자!!!");
       console.log("sido 코드는 : ", this.sidoCode);
       let params = {
         gugunCode,
         sidoCode: this.sidoCode,
       };
       if (gugunCode) this.getHouseList(params);
+    },
+    selectContentTypeId(contentTypeId) {
+      console.log("contentTypeId : ", this.contentTypeId);
+      let params = {
+        gugunCode: this.gugunCode,
+        sidoCode: this.sidoCode,
+        contentTypeId,
+      };
+      if (contentTypeId) this.getHouseList(params);
     },
   },
 };
