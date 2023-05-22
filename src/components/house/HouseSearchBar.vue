@@ -1,20 +1,14 @@
 <template>
-  <b-row class="mt-4 mb-4 text-center">
-    <select-sido @select-sido="selectSido"></select-sido>
-    <select-gugun :sidoCode="sidoCode" @select-gugun="selectGugun"></select-gugun>
-    <select-content-type-id @select-content-type-id="selectContentTypeId"></select-content-type-id>
-
-    <!-- <div class="input-group">
-      <input
-        id="search-keyword"
-        class="form-control me-2"
-        type="search"
-        placeholder="검색어"
-        aria-label="검색어"
-      />
-      <button id="btn-search" class="btn btn-outline-dark" type="button">검색</button>
-    </div> -->
-  </b-row>
+  <div>
+    <b-row class="mt-4 mb-4 text-center">
+      <select-sido @select-sido="selectSido"></select-sido>
+      <select-gugun :sidoCode="sidoCode" @select-gugun="selectGugun"></select-gugun>
+      <select-content-type-id
+        @select-content-type-id="selectContentTypeId"
+      ></select-content-type-id>
+    </b-row>
+    <search-title @search="searchTitle"></search-title>
+  </div>
 </template>
 
 <script>
@@ -22,6 +16,7 @@ import { mapActions, mapMutations } from "vuex";
 import SelectSido from "@/components/item/SelectSido.vue";
 import SelectGugun from "@/components/item/SelectGugun.vue";
 import SelectContentTypeId from "@/components/item/SelectContentTypeId.vue";
+import SearchTitle from "@/components/item/SearchTitle.vue";
 
 const itemStore = "itemStore";
 const houseStore = "houseStore";
@@ -32,11 +27,13 @@ export default {
     SelectSido,
     SelectGugun,
     SelectContentTypeId,
+    SearchTitle,
   },
   data() {
     return {
       sidoCode: null,
       contentTypeId: null,
+      title: null,
     };
   },
   computed: {},
@@ -66,6 +63,16 @@ export default {
         contentTypeId,
       };
       if (contentTypeId) this.getHouseList(params);
+    },
+    searchTitle(title) {
+      console.log("title : ", this.title);
+      let params = {
+        gugunCode: this.gugunCode,
+        sidoCode: this.sidoCode,
+        contentTypeId: this.contentTypeId,
+        title,
+      };
+      this.getHouseList(params);
     },
   },
 };

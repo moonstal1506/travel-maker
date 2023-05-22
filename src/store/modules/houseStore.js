@@ -68,6 +68,7 @@ const houseStore = {
         gugunCode: data.gugunCode,
         sidoCode: data.sidoCode,
         contentTypeId: data.contentTypeId,
+        title: data.title,
       };
       houseList(
         params,
