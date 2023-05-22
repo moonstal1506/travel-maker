@@ -64,11 +64,11 @@ const houseStore = {
       const params = {
         gugunCode: data.gugunCode,
         sidoCode: data.sidoCode,
+        contentTypeId: data.contentTypeId,
       };
       houseList(
         params,
         ({ data }) => {
-          console.log("여기", params, data);
           commit("SET_HOUSE_LIST", data);
         },
         (error) => {

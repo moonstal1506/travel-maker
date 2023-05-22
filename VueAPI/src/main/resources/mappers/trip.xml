@@ -12,7 +12,7 @@
         on attraction_info.contentId = attraction_description.contentId
         WHERE 1=1
         <if test="contentTypeId != 0">
-            AND content_type_id = #{contentTypeId}
+            AND contentTypeId = #{contentTypeId}
         </if>
         <if test="sidoCode != 0">
             AND sidoCode = #{sidoCode}
@@ -24,7 +24,7 @@
             AND title LIKE CONCAT('%', #{title}, '%')
             ORDER BY LENGTH(title)
         </if>
-        LIMIT 30
+        LIMIT 8
 <!--         <if test="title == null or title == ''">
             AND latitude BETWEEN #{latitude - 0.05} AND #{latitude + 0.05}
             AND longitude BETWEEN #{longitude - 0.05} AND #{longitude + 0.05}
