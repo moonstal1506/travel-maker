@@ -8,15 +8,16 @@ import com.ssafy.travelmaker.model.CommentDto;
 import com.ssafy.util.PageNavigation;
 
 public interface BoardService {
-	boolean writeArticle(BoardDto boardDto) throws Exception;
-	List<BoardDto> listArticle(BoardParameterDto boardParameterDto) throws Exception;
-	PageNavigation makePageNavigation(BoardParameterDto boardParameterDto) throws Exception;
-	BoardDto getArticle(int articleno) throws Exception;
-	void updateHit(int articleno) throws Exception;
-	boolean modifyArticle(BoardDto boardDto) throws Exception;
-	boolean deleteArticle(int articleno) throws Exception;
+    List<BoardDto> listArticle(BoardParameterDto boardParameterDto) throws Exception;
+    PageNavigation makePageNavigation(BoardParameterDto boardParameterDto) throws Exception;
+    BoardDto getArticle(int articleno) throws Exception;
+    void updateHit(int articleno) throws Exception;
+    boolean modifyArticle(BoardDto boardDto) throws Exception;
+    boolean deleteArticle(int articleno) throws Exception;
+
+    boolean writeComment(CommentDto commentDto) throws Exception;
+    List<CommentDto> listComment(int articleno) throws Exception;
+    boolean deleteComment(int articleno, int commentId);
+	boolean writeArticle(BoardDto boardDto, String uploadPath) throws Exception;
 	
-	boolean writeComment(CommentDto commentDto) throws Exception;
-	List<CommentDto> listComment(int articleno) throws Exception;
-	boolean deleteComment(int articleno, int commentId);
 }
