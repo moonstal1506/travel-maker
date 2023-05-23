@@ -17,5 +17,10 @@ public interface BoardService {
 	public boolean deleteArticle(int articleno) throws Exception;
 	
 	public boolean writeComment(CommentDto commentDto) throws Exception;
+<<<<<<< HEAD
 	List<CommentDto> listComment(int articleno) throws Exception;
+=======
+	
+	
+>>>>>>> 1c28d632974e234bc3f07dede7a2a385c31b1695
 }

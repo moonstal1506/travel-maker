@@ -41,6 +41,15 @@
             rows="10"
             max-rows="15"
           ></b-form-textarea>
+          <quill-editor
+            ref="myTextEditor"
+            v-model="article.content"
+            :options="editorOption"
+            @blur="onEditorBlur"
+            @focus="onEditorFocus"
+            @ready="onEditorReady"
+            @image-added="onImageAdded"
+          ></quill-editor>
         </b-form-group>
 
         <b-button type="submit" variant="primary" class="m-1" v-if="this.type === 'register'"
@@ -54,12 +63,46 @@
 </template>
 
 <script>
-import { writeArticle, modifyArticle, getArticle } from "@/api/board";
+import { writeArticle, modifyArticle, getArticle, uploadImage } from "@/api/board"; // 백엔드 API 호출 관련 모듈 import
+import hljs from "highlight.js";
+import { quillEditor } from "vue-quill-editor";
+import debounce from "lodash/debounce";
+import "highlight.js/styles/tomorrow.css";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
 
 export default {
   name: "BoardInputItem",
+  title: "Theme: snow",
+  components: {
+    quillEditor,
+  },
   data() {
     return {
+      editorOption: {
+        placeholder: "place holder test",
+        modules: {
+          toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "code-block"],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            ["link", "image", "video"],
+          ],
+          syntax: {
+            highlight: (text) => hljs.highlightAuto(text).value,
+          },
+        },
+      },
+      content: "",
       article: {
         articleno: 0,
         userid: "",
@@ -78,10 +121,6 @@ export default {
       getArticle(
         param,
         ({ data }) => {
-          // this.article.articleno = data.article.articleno;
-          // this.article.userid = data.article.userid;
-          // this.article.subject = data.article.subject;
-          // this.article.content = data.article.content;
           this.article = data;
         },
         (error) => {
@@ -152,7 +191,6 @@ export default {
             msg = "수정이 완료되었습니다.";
           }
           alert(msg);
-          // 현재 route를 /list로 변경.
           this.moveList();
         },
         (error) => {
@@ -163,8 +201,41 @@ export default {
     moveList() {
       this.$router.push({ name: "boardlist" });
     },
+    onEditorChange: debounce(function (value) {
+      this.content = value.html;
+    }, 466),
+    onEditorBlur(editor) {
+      console.log("editor blur!", editor);
+    },
+    onEditorFocus(editor) {
+      console.log("editor focus!", editor);
+    },
+    onEditorReady(editor) {
+      console.log("editor ready!", editor);
+    },
+    onImageAdded(file) {
+      const formData = new FormData();
+      formData.append("image", file);
+      uploadImage(
+        formData,
+        ({ data }) => {
+          // 이미지 업로드 후 반환된 경로를 변수에 저장하고 에디터에 이미지 추가
+          const imagePath = data.image_path;
+          this.$refs.myTextEditor.quill.insertEmbed(
+            this.$refs.myTextEditor.quill.getSelection().index,
+            "image",
+            imagePath
+          );
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
   },
 };
 </script>
 
-<style></style>
+<style>
+/* 이하 생략 */
+</style>

@@ -17,6 +17,9 @@ public class BoardDto {
 	private int hit;
 	@ApiModelProperty(value = "작성일")
 	private String regtime;
+	
+	@ApiModelProperty(value = "이미지 경로")
+    private String imagePath; 
 
 	public int getArticleno() {
 		return articleno;
@@ -65,6 +68,8 @@ public class BoardDto {
 	public void setRegtime(String regtime) {
 		this.regtime = regtime;
 	}
+	
+	
 
 	@Override
 	public String toString() {
