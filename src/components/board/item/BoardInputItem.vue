@@ -156,7 +156,7 @@ export default {
             msg = "등록이 완료되었습니다.";
           }
           alert(msg);
-          // this.moveList();
+          this.moveList();
         },
         (error) => {
           console.log(error);
