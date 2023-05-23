@@ -30,12 +30,15 @@
       </b-col>
     </b-row>
 
+    <!-- 댓글 -->
     <comment-write></comment-write>
+    <comment-list></comment-list>
   </b-container>
 </template>
 
 <script>
 import CommentWrite from "@/components/board/comment/CommentWrite";
+import CommentList from "@/components/board/comment/CommentList";
 import { getArticle } from "@/api/board";
 import { mapState } from "vuex";
 
@@ -45,6 +48,7 @@ export default {
   name: "BoardDetail",
   components: {
     CommentWrite,
+    CommentList,
   },
   data() {
     return {

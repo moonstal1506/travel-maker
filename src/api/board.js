@@ -29,4 +29,16 @@ function writeComment(comment, success, fail) {
     .catch(fail);
 }
 
-export { listArticle, writeArticle, getArticle, modifyArticle, deleteArticle, writeComment };
+function listComment(articleno, success, fail) {
+  api.get(`/board/${articleno}/comment`).then(success).catch(fail);
+}
+
+export {
+  listArticle,
+  writeArticle,
+  getArticle,
+  modifyArticle,
+  deleteArticle,
+  writeComment,
+  listComment,
+};

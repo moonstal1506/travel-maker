@@ -80,4 +80,10 @@ public class BoardServiceImpl implements BoardService {
 	public boolean writeComment(CommentDto commentDto) throws Exception {
 		return sqlSession.getMapper(CommentMapper.class).writeComment(commentDto) == 1;
 	}
+
+	@Override
+	public List<CommentDto> listComment(int articleno) throws Exception {
+		return sqlSession.getMapper(CommentMapper.class).listComment(articleno);
+	}
+
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.ssafy.travelmaker.model.BoardDto;
 import com.ssafy.travelmaker.model.BoardParameterDto;
+import com.ssafy.travelmaker.model.CommentDto;
 
 @Mapper
 public interface BoardMapper {
@@ -20,4 +21,5 @@ public interface BoardMapper {
 	public void deleteMemo(int articleno) throws SQLException;
 	public int deleteArticle(int articleno) throws SQLException;
 	
+	public CommentDto getComment(int articleno) throws SQLException;
 }
