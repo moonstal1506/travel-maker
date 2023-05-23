@@ -9,12 +9,15 @@
             class="flex-column align-items-start"
           >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">✍{{ comment.userid }}</h5>
-              <small class="text-muted">{{ comment.regtime }}</small>
+              <h5 class="mb-1">📝{{ comment.userid }}</h5>
+              <small class="text-right">{{ comment.regtime }}</small>
             </div>
-            <p class="text-left">
-              {{ comment.comment }}
-            </p>
+            <div class="d-flex w-100 justify-content-between">
+              <span>
+                {{ comment.comment }}
+              </span>
+              <span class="x" @click="remove(comment.commentId)">x</span>
+            </div>
           </b-list-group-item>
         </b-list-group>
       </b-col>
@@ -23,11 +26,12 @@
 </template>
 
 <script>
-import { listComment } from "@/api/board";
+import { listComment, deleteComment } from "@/api/board";
 export default {
   name: "CommentList",
   data() {
     return {
+      articleno: 0,
       comments: [],
     };
   },
@@ -36,13 +40,35 @@ export default {
   },
   methods: {
     loadComments() {
-      let articleno = this.$route.params.articleno;
+      this.articleno = this.$route.params.articleno;
       console.log("methods");
       listComment(
-        articleno,
+        this.articleno,
         ({ data }) => {
           this.comments = data;
           console.log(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+
+    remove(commentId) {
+      console.log(commentId);
+      let params = {
+        articleno: this.articleno,
+        commentId,
+      };
+      deleteComment(
+        params,
+        ({ data }) => {
+          let msg = "삭제 처리시 문제가 발생했습니다.";
+          if (data === "success") {
+            msg = "삭제가 완료되었습니다.";
+          }
+          alert(msg);
+          this.loadComments();
         },
         (error) => {
           console.log(error);
@@ -53,4 +79,8 @@ export default {
 };
 </script>
 
-<style scope></style>
+<style scope>
+.x {
+  cursor: pointer;
+}
+</style>

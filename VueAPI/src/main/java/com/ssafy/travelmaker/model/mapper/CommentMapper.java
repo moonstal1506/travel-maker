@@ -12,4 +12,5 @@ public interface CommentMapper {
 	
 	public int writeComment(CommentDto commentDto) throws SQLException;
 	public List<CommentDto> listComment(int articleno) throws SQLException;
+	public int deleteComment(int articleno, int commentId);
 }

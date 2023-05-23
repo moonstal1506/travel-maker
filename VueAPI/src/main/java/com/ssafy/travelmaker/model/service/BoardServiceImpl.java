@@ -86,4 +86,9 @@ public class BoardServiceImpl implements BoardService {
 		return sqlSession.getMapper(CommentMapper.class).listComment(articleno);
 	}
 
+	@Override
+	public boolean deleteComment(int articleno, int commentId) {
+		return sqlSession.getMapper(CommentMapper.class).deleteComment(articleno,commentId) == 1;
+	}
+
 }

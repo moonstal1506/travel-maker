@@ -13,5 +13,10 @@
         FROM comment
         WHERE articleno = #{articleno}
     </select>
+    
+    <delete id="deleteComment" parameterType="int">
+		delete from comment
+		where articleno = #{articleno} and commentId = #{commentId}
+	</delete>
 </mapper>
 

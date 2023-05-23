@@ -112,4 +112,18 @@ public class BoardController {
 		logger.info("listArticle - 호출");
 		return new ResponseEntity<List<CommentDto>>(boardService.listComment(articleno), HttpStatus.OK);
 	}
+	
+	@ApiOperation(value = "댓글삭제", notes = "댓글의 정보를 삭제한다. 그리고 DB삭제 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
+	@DeleteMapping("/{articleno}/comment/{commentId}")
+	public ResponseEntity<String> deleteComment(
+			@PathVariable("articleno") @ApiParam(value = "글번호", required = true) int articleno,
+			@PathVariable("commentId") @ApiParam(value = "댓글번호", required = true) int commentId)
+			throws Exception {
+		logger.info("deleteArticle - 호출");
+
+		if (boardService.deleteComment(articleno,commentId)) {
+			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		}
+		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
+	}
 }
