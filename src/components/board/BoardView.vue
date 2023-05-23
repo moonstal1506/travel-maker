@@ -31,8 +31,8 @@
     </b-row>
 
     <!-- 댓글 -->
-    <comment-write></comment-write>
-    <comment-list></comment-list>
+    <comment-write @comment-added="loadComments"></comment-write>
+    <comment-list ref="CommentList"></comment-list>
   </b-container>
 </template>
 
@@ -75,12 +75,14 @@ export default {
     );
   },
   methods: {
+    loadComments() {
+      this.$refs.CommentList.loadComments();
+    },
     moveModifyArticle() {
       this.$router.replace({
         name: "boardmodify",
         params: { articleno: this.article.articleno },
       });
-      //   this.$router.push({ path: `/board/modify/${this.article.articleno}` });
     },
     deleteArticle() {
       if (confirm("정말로 삭제?")) {
@@ -94,11 +96,6 @@ export default {
       this.$router.push({ name: "boardlist" });
     },
   },
-  // filters: {
-  //   dateFormat(regtime) {
-  //     return moment(new Date(regtime)).format("YY.MM.DD hh:mm:ss");
-  //   },
-  // },
 };
 </script>
 

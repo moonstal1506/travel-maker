@@ -38,6 +38,9 @@ export default {
   created() {
     this.loadComments();
   },
+  mounted() {
+    this.$on("comment-added", this.loadComments);
+  },
   methods: {
     loadComments() {
       this.articleno = this.$route.params.articleno;
