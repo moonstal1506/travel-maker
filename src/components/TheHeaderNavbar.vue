@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" type="dark" variant="success">
       <b-navbar-brand href="#">
         <router-link :to="{ name: 'main' }" class="link">
-          <h2>EnjoyTrip</h2>
+          <h2>TravelMaker</h2>
         </router-link>
       </b-navbar-brand>
 
@@ -12,21 +12,12 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#">
-            <router-link :to="{ name: 'main' }" class="link">
-              메인
-            </router-link>
-            <router-link :to="{ name: 'board' }" class="m-2 link">
-              게시판
-            </router-link>
-            <router-link :to="{ name: 'qna' }" class="m-2 link">
-              Qna
-            </router-link>
-            <router-link :to="{ name: 'electric' }" class="m-2 link">
-              전기
-            </router-link>
-            <router-link :to="{ name: 'house' }" class="m-2 link">
-              여행지
-            </router-link>
+            <router-link :to="{ name: 'main' }" class="link"> 메인 </router-link>
+            <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
+            <router-link :to="{ name: 'qna' }" class="m-2 link"> Qna </router-link>
+            <router-link :to="{ name: 'electric' }" class="m-2 link"> 전기 </router-link>
+            <router-link :to="{ name: 'house' }" class="m-2 link"> 여행지 </router-link>
+            <router-link :to="{ name: 'plan' }" class="m-2 link"> 여행계획 </router-link>
           </b-nav-item>
         </b-navbar-nav>
 
@@ -40,9 +31,7 @@
               >내정보보기</router-link
             >
           </b-nav-item>
-          <b-nav-item
-            class="align-self-center link"
-            @click.prevent="onClickLogout"
+          <b-nav-item class="align-self-center link" @click.prevent="onClickLogout"
             >로그아웃</b-nav-item
           >
         </b-navbar-nav>

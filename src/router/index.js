@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import store from "@/store";
 import AppHouse from "@/views/AppHouse";
+import AppPlan from "@/views/AppPlan";
 import AppElectricCharger from "@/views/AppElectricCharger";
 
 Vue.use(VueRouter);
@@ -38,6 +39,11 @@ const routes = [
     path: "/house",
     name: "house",
     component: AppHouse,
+  },
+  {
+    path: "/plan",
+    name: "plan",
+    component: AppPlan,
   },
   {
     path: "/electric",
