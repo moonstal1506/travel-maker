@@ -3,22 +3,6 @@
     <b-col style="text-align: left">
       <b-form @submit="onSubmit" @reset="onReset">
         <b-form-group
-          id="userid-group"
-          label="작성자:"
-          label-for="userid"
-          description="작성자를 입력하세요."
-        >
-          <b-form-input
-            id="userid"
-            :disabled="isUserid"
-            v-model="article.userid"
-            type="text"
-            required
-            placeholder="작성자 입력..."
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
           id="subject-group"
           label="제목:"
           label-for="subject"
@@ -32,15 +16,11 @@
             placeholder="제목 입력..."
           ></b-form-input>
         </b-form-group>
-
+        <td>이미지</td>
+        <td>
+          <input type="file" id="fileup" ref="fileup" accept="image/*" @change="changeImage" />
+        </td>
         <b-form-group id="content-group" label="내용:" label-for="content">
-          <b-form-textarea
-            id="content"
-            v-model="article.content"
-            placeholder="내용 입력..."
-            rows="10"
-            max-rows="15"
-          ></b-form-textarea>
           <quill-editor
             ref="myTextEditor"
             v-model="article.content"
@@ -48,13 +28,13 @@
             @blur="onEditorBlur"
             @focus="onEditorFocus"
             @ready="onEditorReady"
-            @image-added="onImageAdded"
           ></quill-editor>
         </b-form-group>
 
         <b-button type="submit" variant="primary" class="m-1" v-if="this.type === 'register'"
           >글작성</b-button
         >
+
         <b-button type="submit" variant="outline-success" class="m-1" v-else>글수정</b-button>
         <b-button type="reset" variant="outline-success" class="m-1">초기화</b-button>
       </b-form>
@@ -63,13 +43,16 @@
 </template>
 
 <script>
-import { writeArticle, modifyArticle, getArticle, uploadImage } from "@/api/board"; // 백엔드 API 호출 관련 모듈 import
+import { writeArticle, modifyArticle, getArticle } from "@/api/board"; // 백엔드 API 호출 관련 모듈 import
 import hljs from "highlight.js";
 import { quillEditor } from "vue-quill-editor";
+import { mapState } from "vuex";
 import debounce from "lodash/debounce";
 import "highlight.js/styles/tomorrow.css";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
+
+const memberStore = "memberStore";
 
 export default {
   name: "BoardInputItem",
@@ -80,7 +63,7 @@ export default {
   data() {
     return {
       editorOption: {
-        placeholder: "place holder test",
+        placeholder: "내용 입력",
         modules: {
           toolbar: [
             ["bold", "italic", "underline", "strike"],
@@ -95,7 +78,7 @@ export default {
             [{ font: [] }],
             [{ color: [] }, { background: [] }],
             [{ align: [] }],
-            ["link", "image", "video"],
+            ["video"],
           ],
           syntax: {
             highlight: (text) => hljs.highlightAuto(text).value,
@@ -105,12 +88,14 @@ export default {
       content: "",
       article: {
         articleno: 0,
-        userid: "",
         subject: "",
         content: "",
+        fileup: "",
       },
-      isUserid: false,
     };
+  },
+  computed: {
+    ...mapState(memberStore, ["userInfo"]),
   },
   props: {
     type: { type: String },
@@ -127,7 +112,6 @@ export default {
           console.log(error);
         }
       );
-      this.isUserid = true;
     }
   },
   methods: {
@@ -136,10 +120,7 @@ export default {
 
       let err = true;
       let msg = "";
-      !this.article.userid &&
-        ((msg = "작성자 입력해주세요"), (err = false), this.$refs.userid.focus());
-      err &&
-        !this.article.subject &&
+      !this.article.subject &&
         ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
       err &&
         !this.article.content &&
@@ -156,20 +137,26 @@ export default {
       this.moveList();
     },
     registArticle() {
-      let param = {
-        userid: this.article.userid,
-        subject: this.article.subject,
-        content: this.article.content,
-      };
+      // let param = {
+      //   subject: this.article.subject,
+      //   content: this.article.content,
+      //   fileup: this.article.fileup,
+      // };
+      const formData = new FormData();
+      formData.append("userid", this.userInfo.userid);
+      formData.append("subject", this.article.subject);
+      formData.append("content", this.article.content);
+      formData.append("fileup", this.article.fileup);
+      console.log("dddd", formData);
       writeArticle(
-        param,
+        formData,
         ({ data }) => {
           let msg = "등록 처리시 문제가 발생했습니다.";
           if (data === "success") {
             msg = "등록이 완료되었습니다.";
           }
           alert(msg);
-          this.moveList();
+          // this.moveList();
         },
         (error) => {
           console.log(error);
@@ -179,7 +166,6 @@ export default {
     modifyArticle() {
       let param = {
         articleno: this.article.articleno,
-        userid: this.article.userid,
         subject: this.article.subject,
         content: this.article.content,
       };
@@ -213,29 +199,10 @@ export default {
     onEditorReady(editor) {
       console.log("editor ready!", editor);
     },
-    onImageAdded(file) {
-      const formData = new FormData();
-      formData.append("image", file);
-      uploadImage(
-        formData,
-        ({ data }) => {
-          // 이미지 업로드 후 반환된 경로를 변수에 저장하고 에디터에 이미지 추가
-          const imagePath = data.image_path;
-          this.$refs.myTextEditor.quill.insertEmbed(
-            this.$refs.myTextEditor.quill.getSelection().index,
-            "image",
-            imagePath
-          );
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    changeImage() {
+      this.article.fileup = this.$refs.fileup.files[0];
+      console.log("changeFile......................", this.article.fileup);
     },
   },
 };
 </script>
-
-<style>
-/* 이하 생략 */
-</style>

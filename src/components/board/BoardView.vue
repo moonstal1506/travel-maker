@@ -23,6 +23,7 @@
           border-variant="dark"
           no-body
         >
+          <img v-for="(file, index) in article.files" :key="index" :src="file.sfilename | urlTo" />
           <b-card-body class="text-left">
             <div v-html="message"></div>
           </b-card-body>
@@ -45,6 +46,11 @@ export default {
   name: "BoardDetail",
   components: {
     CommentWrite,
+  },
+  filters: {
+    urlTo(url) {
+      return `http://localhost/board/upload/image/${url}`;
+    },
   },
   data() {
     return {

@@ -5,10 +5,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -35,15 +37,19 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
+	@Value("${file.imgPath}")
+	private String uploadPath;
 
 	@Autowired
 	private BoardService boardService;
 
 	@ApiOperation(value = "게시판 글작성", notes = "새로운 게시글 정보를 입력한다. 그리고 DB입력 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PostMapping
-	public ResponseEntity<String> writeArticle(@RequestBody @ApiParam(value = "게시글 정보.", required = true) BoardDto boardDto) throws Exception {
+	public ResponseEntity<String> writeArticle(@ModelAttribute @ApiParam(value = "게시글 정보.", required = true) BoardDto boardDto) throws Exception {
+		System.out.println(boardDto);
+		System.out.println(uploadPath);
 		logger.info("writeArticle - 호출");
-		if (boardService.writeArticle(boardDto)) {
+		if (boardService.writeArticle(boardDto, uploadPath)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);

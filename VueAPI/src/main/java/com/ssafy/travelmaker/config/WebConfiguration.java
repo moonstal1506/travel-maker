@@ -35,6 +35,8 @@ public class WebConfiguration implements WebMvcConfigurer {
 		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         registry.addResourceHandler("/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/upload/image/**").addResourceLocations("file:///c://springboot//img//");
+		registry.addResourceHandler("/upload/image/**").addResourceLocations("file:///c://springboot//img//");
     }
 	
 }

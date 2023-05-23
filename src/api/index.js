@@ -11,6 +11,16 @@ function apiInstance() {
   return instance;
 }
 
+function fileInstance() {
+  const instance = axios.create({
+    baseURL: process.env.VUE_APP_API_BASE_URL,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return instance;
+}
+
 // house deal API axios instance
 function houseInstance() {
   const instance = axios.create({
@@ -32,4 +42,4 @@ function electricInstance() {
   return instance;
 }
 
-export { apiInstance, houseInstance, electricInstance };
+export { apiInstance, houseInstance, electricInstance, fileInstance };

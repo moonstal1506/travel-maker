@@ -1,13 +1,14 @@
-import { apiInstance } from "./index.js";
+import { apiInstance, fileInstance } from "./index.js";
 
 const api = apiInstance();
+const file = fileInstance();
 
 function listArticle(param, success, fail) {
   api.get(`/board`, { params: param }).then(success).catch(fail);
 }
 
 function writeArticle(article, success, fail) {
-  api.post(`/board`, JSON.stringify(article)).then(success).catch(fail);
+  file.post(`/board`, article).then(success).catch(fail);
 }
 
 function getArticle(articleno, success, fail) {

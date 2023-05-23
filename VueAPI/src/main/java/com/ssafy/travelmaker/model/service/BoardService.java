@@ -8,7 +8,7 @@ import com.ssafy.travelmaker.model.CommentDto;
 import com.ssafy.util.PageNavigation;
 
 public interface BoardService {
-	public boolean writeArticle(BoardDto boardDto) throws Exception;
+	public boolean writeArticle(BoardDto boardDto, String uploadPath) throws Exception;
 	public List<BoardDto> listArticle(BoardParameterDto boardParameterDto) throws Exception;
 	public PageNavigation makePageNavigation(BoardParameterDto boardParameterDto) throws Exception;
 	public BoardDto getArticle(int articleno) throws Exception;
