@@ -43,10 +43,10 @@
 	
 	<select id="getArticle" parameterType="int" resultType="boardDto">
 		select articleno, userid, subject, content, hit, regtime
-		from board
+		from board b
 		where articleno = #{articleno}
 	</select>
-	
+
 	<update id="updateHit" parameterType="int">
 		update board
 		set hit = hit + 1

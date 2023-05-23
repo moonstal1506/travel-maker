@@ -8,7 +8,7 @@
       <b-col cols="8">
         <b-card class="text-center mt-3" style="max-width: 40rem" align="left">
           <b-form class="text-left">
-            <b-alert show variant="danger" v-if="isLoginError"
+            <b-alert show variant="danger" v-if="isLoginError && (user.userid || user.userpwd)"
               >아이디 또는 비밀번호를 확인하세요.</b-alert
             >
             <b-form-group label="아이디:" label-for="userid">
@@ -61,7 +61,6 @@ export default {
   name: "UserLogin",
   data() {
     return {
-      // isLoginError: false,
       user: {
         userid: null,
         userpwd: null,
@@ -76,15 +75,13 @@ export default {
     async confirm() {
       await this.userConfirm(this.user);
       let token = sessionStorage.getItem("access-token");
-      // console.log("1. confirm() token >> " + token);
       if (this.isLogin) {
         await this.getUserInfo(token);
-        // console.log("4. confirm() userInfo :: ", this.userInfo);
         this.$router.push({ name: "main" });
       }
     },
     movePage() {
-      this.$router.push({ name: "join" });
+      this.$router.push({ name: "register" });
     },
   },
 };
