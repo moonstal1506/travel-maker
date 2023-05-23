@@ -17,4 +17,6 @@ public interface BoardService {
 	public boolean deleteArticle(int articleno) throws Exception;
 	
 	public boolean writeComment(CommentDto commentDto) throws Exception;
+	
+	
 }

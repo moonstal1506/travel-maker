@@ -20,4 +20,5 @@ public interface BoardMapper {
 	public void deleteMemo(int articleno) throws SQLException;
 	public int deleteArticle(int articleno) throws SQLException;
 	
+	
 }
