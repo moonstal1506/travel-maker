@@ -21,6 +21,7 @@ public interface BoardMapper {
 	public void updateHit(int articleno) throws Exception;
 	public int modifyArticle(BoardDto boardDto) throws Exception;
 	public int deleteArticle(int articleno) throws Exception;
-	
+	public CommentDto getComment(int articleno) throws SQLException;
 	public boolean writeComment(CommentDto commentDto) throws Exception;
+
 }

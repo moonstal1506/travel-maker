@@ -1,11 +1,6 @@
 <template>
   <b-container v-if="houses && houses.length != 0" class="bv-example-row mt-3">
     <house-list-item v-for="(house, index) in houses" :key="index" :house="house" />
-    <house-list-item
-      v-for="(house, index) in houses"
-      :key="index"
-      :house="house"
-    />
   </b-container>
   <b-container v-else class="bv-example-row mt-3">
     <b-row>
@@ -13,7 +8,6 @@
     </b-row>
   </b-container>
 </template>
-
 
 <script>
 import HouseListItem from "@/components/house/HouseListItem";

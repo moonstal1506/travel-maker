@@ -30,4 +30,21 @@ function writeComment(comment, success, fail) {
     .catch(fail);
 }
 
-export { listArticle, writeArticle, getArticle, modifyArticle, deleteArticle, writeComment };
+function listComment(articleno, success, fail) {
+  api.get(`/board/${articleno}/comment`).then(success).catch(fail);
+}
+
+function deleteComment(params, success, fail) {
+  api.delete(`/board/${params.articleno}/comment/${params.commentId}`).then(success).catch(fail);
+}
+
+export {
+  listArticle,
+  writeArticle,
+  getArticle,
+  modifyArticle,
+  deleteArticle,
+  writeComment,
+  listComment,
+  deleteComment,
+};

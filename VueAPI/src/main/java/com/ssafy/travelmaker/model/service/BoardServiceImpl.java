@@ -126,4 +126,14 @@ public class BoardServiceImpl implements BoardService {
 		return sqlSession.getMapper(CommentMapper.class).writeComment(commentDto) == 1;
 	}
 
+	@Override
+	public List<CommentDto> listComment(int articleno) throws Exception {
+		return sqlSession.getMapper(CommentMapper.class).listComment(articleno);
+	}
+
+	@Override
+	public boolean deleteComment(int articleno, int commentId) {
+		return sqlSession.getMapper(CommentMapper.class).deleteComment(articleno,commentId) == 1;
+	}
+
 }

@@ -14,6 +14,7 @@
 
 <script>
 import { writeComment } from "@/api/board";
+
 import { mapState } from "vuex";
 const memberStore = "memberStore";
 
@@ -48,6 +49,9 @@ export default {
           let msg = "등록 처리시 문제가 발생했습니다.";
           if (data === "success") {
             msg = "등록이 완료되었습니다.";
+            this.comment = "";
+            this.$emit("comment-added");
+            console.log("comment - added");
           }
           alert(msg);
         },

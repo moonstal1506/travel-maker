@@ -31,12 +31,15 @@
       </b-col>
     </b-row>
 
-    <comment-write></comment-write>
+    <!-- 댓글 -->
+    <comment-write @comment-added="loadComments"></comment-write>
+    <comment-list ref="CommentList"></comment-list>
   </b-container>
 </template>
 
 <script>
 import CommentWrite from "@/components/board/comment/CommentWrite";
+import CommentList from "@/components/board/comment/CommentList";
 import { getArticle } from "@/api/board";
 import { mapState } from "vuex";
 
@@ -46,6 +49,7 @@ export default {
   name: "BoardDetail",
   components: {
     CommentWrite,
+    CommentList,
   },
   filters: {
     urlTo(url) {
@@ -77,12 +81,14 @@ export default {
     );
   },
   methods: {
+    loadComments() {
+      this.$refs.CommentList.loadComments();
+    },
     moveModifyArticle() {
       this.$router.replace({
         name: "boardmodify",
         params: { articleno: this.article.articleno },
       });
-      //   this.$router.push({ path: `/board/modify/${this.article.articleno}` });
     },
     deleteArticle() {
       if (confirm("정말로 삭제?")) {
@@ -96,11 +102,6 @@ export default {
       this.$router.push({ name: "boardlist" });
     },
   },
-  // filters: {
-  //   dateFormat(regtime) {
-  //     return moment(new Date(regtime)).format("YY.MM.DD hh:mm:ss");
-  //   },
-  // },
 };
 </script>
 

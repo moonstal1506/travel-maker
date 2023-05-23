@@ -7,5 +7,16 @@
 		insert into comment (articleno, userid, comment, regtime)
 		values (#{articleno}, #{userid}, #{comment},now())
 	</insert>
+			
+    <select id="listComment" parameterType="map" resultType="CommentDto">
+        select commentId, userid, comment, regtime
+        FROM comment
+        WHERE articleno = #{articleno}
+    </select>
+    
+    <delete id="deleteComment" parameterType="int">
+		delete from comment
+		where articleno = #{articleno} and commentId = #{commentId}
+	</delete>
 </mapper>
 
