@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { writeComment } from "@/api/board";
+import { writeComment } from "@/api/hotplace";
 
 import { mapState } from "vuex";
 const memberStore = "memberStore";

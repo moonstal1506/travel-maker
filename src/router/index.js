@@ -117,6 +117,48 @@ const routes = [
     ],
   },
   {
+    path: "/hotplace",
+    name: "hotplace",
+    component: () => import(/* webpackChunkName: "hotplace" */ "@/views/AppHotPlace"),
+    redirect: "/hotplace/list",
+    children: [
+      {
+        path: "list",
+        name: "hotplacelist",
+        component: () =>
+          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceList"),
+      },
+      {
+        path: "write",
+        name: "hotplacewrite",
+        beforeEnter: onlyAuthUser,
+        component: () =>
+          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceWrite"),
+      },
+      {
+        path: "view/:hotplaceno",
+        name: "hotplaceview",
+        beforeEnter: onlyAuthUser,
+        component: () =>
+          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceView"),
+      },
+      {
+        path: "modify",
+        name: "hotplacemodify",
+        beforeEnter: onlyAuthUser,
+        component: () =>
+          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceModify"),
+      },
+      {
+        path: "delete/:hotplaceno",
+        name: "hotplacedelete",
+        beforeEnter: onlyAuthUser,
+        component: () =>
+          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceDelete"),
+      },
+    ],
+  },
+  {
     path: "/qna",
     name: "qna",
     component: () => import(/* webpackChunkName: "qna" */ "@/views/AppQna"),

@@ -18,6 +18,9 @@
             <router-link :to="{ name: 'electric' }" class="m-2 link"> 전기 </router-link>
             <router-link :to="{ name: 'house' }" class="m-2 link"> 여행지 </router-link>
             <router-link :to="{ name: 'plan' }" class="m-2 link"> 여행계획 </router-link>
+            <router-link :to="{ name: 'hotplace' }" class="m-2 link">
+              나만의 핫플레이스
+            </router-link>
           </b-nav-item>
         </b-navbar-nav>
 

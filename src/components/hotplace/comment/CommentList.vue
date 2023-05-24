@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { listComment, deleteComment } from "@/api/board";
+import { listComment, deleteComment } from "@/api/hotplace";
 export default {
   name: "CommentList",
   data() {
