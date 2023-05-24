@@ -2,13 +2,17 @@
   <b-container class="bv-example-row">
     <h3>여행 계획 작성</h3>
     <div class="mb-3">
-      <b-form-input v-model="text" placeholder="제목을 입력해주세요"></b-form-input>
+      <b-form-input
+        v-model="title"
+        placeholder="제목을 입력해주세요"
+      ></b-form-input>
     </div>
     <div class="mb-3">
-      <b-form-input id="type-date" type="date"></b-form-input>
+      <b-form-input v-model="date" id="type-date" type="date"></b-form-input>
     </div>
     <div class="mb-3">
       <b-form-textarea
+        v-model="content"
         id="textarea-no-resize"
         placeholder="상세 계획 작성"
         rows="3"
@@ -41,20 +45,30 @@
       </b-list-group-item>
     </b-list-group>
     <div class="mt-3 text-right">
-      <b-button variant="outline-success" @click="write">등록</b-button>
+      <b-button variant="outline-success" @click="register">등록</b-button>
     </div>
   </b-container>
 </template>
 
 <script>
+import { registerPlan } from "@/api/plan";
 import { mapState, mapActions } from "vuex";
 
 const houseStore = "houseStore";
+const memberStore = "memberStore";
 
 export default {
   name: "PlanWrite",
+  data() {
+    return {
+      title: "",
+      date: "",
+      content: "",
+    };
+  },
   computed: {
     ...mapState(houseStore, ["plans"]),
+    ...mapState(memberStore, ["userInfo"]),
   },
   created() {
     this.reset();
@@ -67,6 +81,56 @@ export default {
     },
     remove(contentId) {
       this.setPlan(this.plans.filter((plan) => plan.contentId !== contentId));
+    },
+    register() {
+      if (!this.userInfo) {
+        this.$router.push({ name: "login" });
+        alert("로그인이 필요한 페이지입니다.");
+        return;
+      }
+      let err = false;
+      let msg = "";
+      if (!this.title) {
+        msg = "제목 입력해주세요";
+        err = true;
+      }
+      if (!this.content) {
+        msg = "내용 입력해주세요";
+        err = true;
+      }
+      if (!this.date) {
+        msg = "날짜 입력해주세요";
+        err = true;
+      }
+      if (!this.plans) {
+        msg = "여행지를 선택해주세요";
+        err = true;
+      }
+      if (err) {
+        alert(msg);
+        return;
+      }
+      const params = {
+        userid: this.userInfo.userid,
+        title: this.title,
+        date: this.date,
+        content: this.content,
+        plans: this.plans,
+      };
+      console.log(params);
+      registerPlan(
+        params,
+        ({ data }) => {
+          let msg = "등록 처리시 문제가 발생했습니다.";
+          if (data === "success") {
+            msg = "등록이 완료되었습니다.";
+          }
+          alert(msg);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     },
     colorChange(flag) {
       this.isColor = flag;

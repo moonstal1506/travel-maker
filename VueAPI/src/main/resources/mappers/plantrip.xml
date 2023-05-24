@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace를 Dao의 package를 포함한 인터페이스 명과 동일하게 선언해야 한다. -->
+<mapper namespace='com.ssafy.travelmaker.model.mapper.PlanTripMapper'>
+
+    <insert id="register" parameterType="PlanTripDto">
+        INSERT INTO plan_trip (planId, contentId)
+        VALUES (#{planId}, #{contentId})
+    </insert>
+
+</mapper>    
+
+
+
+

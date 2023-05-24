@@ -9,7 +9,8 @@
     <b-col cols="2" class="text-center align-self-center">
       <b-img thumbnail :src="house.first_image" alt="Image 1"></b-img>
     </b-col>
-    <b-col cols="10" class="align-self-center">{{ house.title }} </b-col>
+    <b-col cols="9" class="align-self-center">{{ house.title }} </b-col>
+    <b-button cols="1" variant="light">+</b-button>
   </b-row>
 </template>
 
@@ -48,6 +49,6 @@ export default {
   width: 50px;
 }
 .mouse-over-bgcolor {
-  background-color: lightblue;
+  background-color: rgba(236, 236, 236, 0.964);
 }
 </style>
