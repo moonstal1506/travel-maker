@@ -3,10 +3,16 @@
     <hr />
     <b-row class="mb-1">
       <b-col cols="10">
-        <b-form-input type="text" placeholder="댓글을 입력하세요" v-model="comment"></b-form-input>
+        <b-form-input
+          type="text"
+          placeholder="댓글을 입력하세요"
+          v-model="comment"
+        ></b-form-input>
       </b-col>
       <b-col cols="2">
-        <b-button variant="outline-success" @click="registComment">댓글작성</b-button>
+        <b-button variant="outline-success" @click="registComment"
+          >댓글작성</b-button
+        >
       </b-col>
     </b-row>
   </div>
@@ -21,7 +27,7 @@ const memberStore = "memberStore";
 export default {
   name: "CommentWrite",
   props: {
-    hotplaceno: Number,
+    articleno: Number,
   },
   data() {
     return {
@@ -38,7 +44,7 @@ export default {
         return;
       }
       let param = {
-        hotplaceno: this.$route.params.hotplaceno,
+        articleno: this.$route.params.articleno,
         userid: this.userInfo.userid,
         comment: this.comment,
       };

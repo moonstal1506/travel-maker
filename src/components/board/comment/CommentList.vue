@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     loadComments() {
-      this.hotplaceno = this.$route.params.hotplaceno;
+      this.articleno = this.$route.params.articleno;
       console.log("methods");
       listComment(
-        this.hotplaceno,
+        this.articleno,
         ({ data }) => {
           this.comments = data;
           console.log(data);
@@ -60,7 +60,7 @@ export default {
     remove(commentId) {
       console.log(commentId);
       let params = {
-        hotplaceno: this.hotplaceno,
+        articleno: this.articleno,
         commentId,
       };
       deleteComment(
