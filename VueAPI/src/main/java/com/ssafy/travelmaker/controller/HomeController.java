@@ -14,15 +14,14 @@ import com.ssafy.travelmaker.model.service.TripService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@RequestMapping("/trip")
 @RestController
-public class TripController {
+public class HomeController {
 
 	private final TripService service;
 
-	@GetMapping("/data")
-	public ResponseEntity<?> data(TripDto trip) {
+	@GetMapping
+	public ResponseEntity<?> main(TripDto trip) {
 		System.out.println(trip);
-		return new ResponseEntity<List>(service.search(trip), HttpStatus.OK);
+		return new ResponseEntity<List>(service.main(trip), HttpStatus.OK);
 	}
 }

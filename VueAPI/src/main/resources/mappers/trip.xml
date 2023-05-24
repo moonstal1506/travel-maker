@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-<!-- namespace를 Dao의 package를 포함한 인터페이스 명과 동일하게 선언해야 한다.  -->    
-<mapper  namespace='com.ssafy.travelmaker.model.mapper.TripMapper'>
 
-	  <select id="search" parameterType="TripDto" resultType="TripDto">
-        SELECT *
-        FROM attraction_info
-        join attraction_description
-        on attraction_info.contentId = attraction_description.contentId
-        WHERE 1=1
-        <if test="contentTypeId != 0">
-            AND contentTypeId = #{contentTypeId}
-        </if>
-        <if test="sidoCode != 0">
-            AND sidoCode = #{sidoCode}
-        </if>
-        <if test="gugunCode != 0">
-            AND gugunCode = #{gugunCode}
-        </if>
-        <if test="title != null and title != ''">
-            AND title LIKE CONCAT('%', #{title}, '%')
-            ORDER BY LENGTH(title)
-        </if>
-        LIMIT 8
-<!--         <if test="title == null or title == ''">
-            AND latitude BETWEEN #{latitude - 0.05} AND #{latitude + 0.05}
-            AND longitude BETWEEN #{longitude - 0.05} AND #{longitude + 0.05}
-        </if> -->
-    </select>
-	
+<!-- namespace를 Dao의 package를 포함한 인터페이스 명과 동일하게 선언해야 한다. -->
+<mapper namespace='com.ssafy.travelmaker.model.mapper.TripMapper'>
+
+<select id="search" parameterType="TripDto" resultType="TripDto">
+	SELECT *
+    FROM attraction_info
+    JOIN attraction_description
+    ON attraction_info.contentId = attraction_description.contentId
+    WHERE 1=1
+    <if test="contentTypeId != 0">
+        AND contentTypeId = #{contentTypeId}
+    </if>
+    <if test="sidoCode != 0">
+        AND sidoCode = #{sidoCode}
+    </if>
+    <if test="gugunCode != 0">
+        AND gugunCode = #{gugunCode}
+    </if>
+    <if test="title != null and title != ''">
+        AND title LIKE CONCAT('%', #{title}, '%')
+    </if>
+	<if test="latitude != 0.0 and longitude != 0.0">
+        AND <![CDATA[
+	        (
+	            6371 * 2 * ASIN(
+	                SQRT(
+	                    POWER(SIN((RADIANS(latitude) - RADIANS(${latitude})) / 2), 2) +
+	                    COS(RADIANS(${latitude})) * COS(RADIANS(latitude)) *
+	                    POWER(SIN((RADIANS(longitude) - RADIANS(${longitude})) / 2), 2)
+	                )
+	            )
+	        ) <= 1
+	     ]]>
+    </if>
+    LIMIT 9
+</select>
+
 </mapper>    
 
 

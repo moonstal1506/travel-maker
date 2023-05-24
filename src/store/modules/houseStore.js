@@ -7,6 +7,7 @@ const houseStore = {
     guguns: [{ value: null, text: "선택하세요" }],
     houses: [],
     house: null,
+    plans: [],
   },
   getters: {},
   mutations: {
@@ -39,6 +40,20 @@ const houseStore = {
     SET_DETAIL_HOUSE(state, house) {
       state.house = house;
     },
+    ADD_PLAN_LIST(state, plan) {
+      state.plans.push({
+        contentId: plan.contentId,
+        first_image: plan.first_image,
+        title: plan.title,
+        addr1: plan.addr1,
+      });
+    },
+    RESET_PLAN_LIST(state) {
+      state.plans = [];
+    },
+    SET_PLAN_LIST(state, plans) {
+      state.plans = plans;
+    },
   },
   actions: {
     getSido: ({ commit }) => {
@@ -69,6 +84,8 @@ const houseStore = {
         sidoCode: data.sidoCode,
         contentTypeId: data.contentTypeId,
         title: data.title,
+        latitude: data.latitude,
+        longitude: data.longitude,
       };
       houseList(
         params,
@@ -81,8 +98,16 @@ const houseStore = {
       );
     },
     detailHouse: ({ commit }, house) => {
-      // 나중에 house.일련번호를 이용하여 API 호출
       commit("SET_DETAIL_HOUSE", house);
+    },
+    addPlan: ({ commit }, plan) => {
+      commit("ADD_PLAN_LIST", plan);
+    },
+    setPlan: ({ commit }, plan) => {
+      commit("SET_PLAN_LIST", plan);
+    },
+    resetPlans: ({ commit }) => {
+      commit("RESET_PLAN_LIST");
     },
   },
 };

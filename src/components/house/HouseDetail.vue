@@ -35,9 +35,6 @@ export default {
   name: "HouseDetail",
   computed: {
     ...mapState(houseStore, ["house"]),
-    // house() {
-    //   return this.$store.state.house;
-    // },
   },
   filters: {
     price(value) {

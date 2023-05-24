@@ -11,4 +11,5 @@ import com.ssafy.travelmaker.model.TripDto;
 public interface TripMapper {
 
 	List<TripDto> search(TripDto trip) throws SQLException;
+	List<TripDto> main(TripDto trip) throws SQLException;
 }

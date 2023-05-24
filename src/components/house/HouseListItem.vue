@@ -17,7 +17,6 @@
 import { mapActions } from "vuex";
 
 const houseStore = "houseStore";
-
 export default {
   name: "HouseListItem",
   data() {
@@ -30,10 +29,12 @@ export default {
   },
   methods: {
     ...mapActions(houseStore, ["detailHouse"]),
+    ...mapActions(houseStore, ["addPlan"]),
+
     selectHouse() {
-      // console.log("listRow : ", this.house);
-      // this.$store.dispatch("getHouse", this.house);
       this.detailHouse(this.house);
+      this.addPlan(this.house);
+      console.log("methods", this.house);
     },
     colorChange(flag) {
       this.isColor = flag;

@@ -9,20 +9,18 @@
       <hr class="my-4" />
       <div>
         <div class="row">
-          <div class="col-md-3" v-for="(card, index) in cards" :key="index">
+          <div class="col-md-4" v-for="(house, index) in houses" :key="index">
             <b-card
-              :title="card.title"
-              :img-src="card.imgSrc"
+              :title="house.title"
+              :img-src="house.first_image || require('@/assets/mango.jpg')"
               img-alt="Image"
               img-top
               tag="article"
               style="max-width: 20rem"
               class="mb-2"
             >
-              <b-card-text>{{ card.content }}</b-card-text>
-              <b-button :href="card.link" variant="success"
-                >Go somewhere</b-button
-              >
+              <b-card-text>{{ house.addr1 }}</b-card-text>
+              <!-- <b-button variant="success">Go somewhere</b-button> -->
             </b-card>
           </div>
         </div>
@@ -32,65 +30,40 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+const houseStore = "houseStore";
+
 export default {
-  data() {
-    return {
-      cards: [
-        {
-          title: "Card 1",
-          imgSrc: "https://picsum.photos/300/300/?image=25",
-          content: "Some quick example text for Card 1.",
-          link: "#",
-        },
-        {
-          title: "Card 2",
-          imgSrc: "https://picsum.photos/300/300/?image=50",
-          content: "Some quick example text for Card 2.",
-          link: "#",
-        },
-        {
-          title: "Card 3",
-          imgSrc: "https://picsum.photos/300/300/?image=75",
-          content: "Some quick example text for Card 3.",
-          link: "#",
-        },
-        {
-          title: "Card 4",
-          imgSrc: "https://picsum.photos/300/300/?image=75",
-          content: "Some quick example text for Card 3.",
-          link: "#",
-        },
-        {
-          title: "Card 1",
-          imgSrc: "https://picsum.photos/300/300/?image=25",
-          content: "Some quick example text for Card 1.",
-          link: "#",
-        },
-        {
-          title: "Card 2",
-          imgSrc: "https://picsum.photos/300/300/?image=50",
-          content: "Some quick example text for Card 2.",
-          link: "#",
-        },
-        {
-          title: "Card 3",
-          imgSrc: "https://picsum.photos/300/300/?image=75",
-          content: "Some quick example text for Card 3.",
-          link: "#",
-        },
-        {
-          title: "Card 4",
-          imgSrc: "https://picsum.photos/300/300/?image=75",
-          content: "Some quick example text for Card 3.",
-          link: "#",
-        },
-        // Add more cards here
-      ],
-    };
-  },
   name: "AppMain",
   props: {
     msg: String,
+  },
+  data() {
+    return {};
+  },
+  created() {
+    this.getCurrentPosition();
+  },
+  computed: {
+    ...mapState(houseStore, ["houses"]),
+  },
+  methods: {
+    ...mapActions(houseStore, ["getHouseList"]),
+    getCurrentPosition() {
+      navigator.geolocation.getCurrentPosition(this.getPositionSuccess, this.getPositionError);
+    },
+    getPositionSuccess(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      let params = {
+        latitude,
+        longitude,
+      };
+      this.getHouseList(params);
+    },
+    getPositionError() {
+      alert("위치를 찾을 수 없습니다.");
+    },
   },
 };
 </script>

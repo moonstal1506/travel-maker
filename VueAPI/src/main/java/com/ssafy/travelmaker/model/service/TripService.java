@@ -6,4 +6,5 @@ import com.ssafy.travelmaker.model.TripDto;
 
 public interface TripService {
 	public List<TripDto> search(TripDto trip);
+	public List<TripDto> main(TripDto trip);
 }

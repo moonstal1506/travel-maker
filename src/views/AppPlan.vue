@@ -15,7 +15,7 @@
     </b-row>
     <b-row>
       <b-col cols="6" align="left">
-        <house-list />
+        <house-list type="plan" />
       </b-col>
       <b-col cols="6">
         <plan-write />

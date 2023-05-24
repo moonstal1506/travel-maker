@@ -29,4 +29,14 @@ public class TripServiceImpl implements TripService {
 			throw new TripException(e.getMessage());
 		}
 	}
+	
+	@Override
+	public List<TripDto> main(TripDto trip) {
+		try {
+			return sqlSession.getMapper(TripMapper.class).main(trip);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new TripException(e.getMessage());
+		}
+	}
 }
