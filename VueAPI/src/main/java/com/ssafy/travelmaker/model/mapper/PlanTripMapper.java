@@ -1,6 +1,5 @@
 package com.ssafy.travelmaker.model.mapper;
 
-import com.ssafy.travelmaker.model.PlanDto;
 import com.ssafy.travelmaker.model.PlanTripDto;
 import org.apache.ibatis.annotations.Mapper;
 

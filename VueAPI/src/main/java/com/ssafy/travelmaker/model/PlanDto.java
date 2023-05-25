@@ -13,4 +13,5 @@ public class PlanDto implements Serializable {
 	private String date;
 	private String content;
 	private List<PlanTripDto> plans;
+	private List<TripDto> trips;
 }

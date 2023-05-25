@@ -50,7 +50,10 @@ export default {
   methods: {
     ...mapActions(houseStore, ["getHouseList"]),
     getCurrentPosition() {
-      navigator.geolocation.getCurrentPosition(this.getPositionSuccess, this.getPositionError);
+      navigator.geolocation.getCurrentPosition(
+        this.getPositionSuccess,
+        this.getPositionError
+      );
     },
     getPositionSuccess(position) {
       const latitude = position.coords.latitude;
