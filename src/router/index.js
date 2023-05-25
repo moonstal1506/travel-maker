@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import store from "@/store";
 import AppHouse from "@/views/AppHouse";
-import AppPlan from "@/views/AppPlan";
 import AppElectricCharger from "@/views/AppElectricCharger";
 
 Vue.use(VueRouter);
@@ -41,11 +40,6 @@ const routes = [
     component: AppHouse,
   },
   {
-    path: "/plan",
-    name: "plan",
-    component: AppPlan,
-  },
-  {
     path: "/electric",
     name: "electric",
     component: AppElectricCharger,
@@ -57,7 +51,7 @@ const routes = [
     children: [
       {
         path: "register",
-        name: "register",
+        name: "registerplan",
         component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserRegister"),
       },
       {
@@ -113,6 +107,29 @@ const routes = [
         name: "boarddelete",
         beforeEnter: onlyAuthUser,
         component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardDelete"),
+      },
+    ],
+  },
+  {
+    path: "/plan",
+    name: "plan",
+    component: () => import(/* webpackChunkName: "plan" */ "@/views/AppPlan"),
+    redirect: "/plan/list",
+    children: [
+      {
+        path: "list",
+        name: "planlist",
+        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanList"),
+      },
+      {
+        path: "write",
+        name: "planwrite",
+        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanWrite"),
+      },
+      {
+        path: "view/:planId",
+        name: "planview",
+        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanView"),
       },
     ],
   },

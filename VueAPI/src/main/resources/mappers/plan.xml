@@ -5,11 +5,53 @@
 <!-- namespace를 Dao의 package를 포함한 인터페이스 명과 동일하게 선언해야 한다. -->
 <mapper namespace='com.ssafy.travelmaker.model.mapper.PlanMapper'>
 
-    <insert id="register" parameterType="PlanDto" useGeneratedKeys="true" keyProperty="planId">
-        INSERT INTO plan (userid, title, date, content)
-        VALUES (#{userid}, #{title}, #{date}, #{content})
-    </insert>
+	<insert id="register" parameterType="PlanDto"
+		useGeneratedKeys="true" keyProperty="planId">
+		INSERT INTO plan (userid, planTitle,
+		date, content)
+		VALUES (#{userid}, #{planTitle}, #{date}, #{content})
+	</insert>
 
+	<resultMap id="tripMap" type="planDto">
+		<id property="planId" column="planId" />
+		<result property="planTitle" column="planTitle" />
+		<result property="date" column="date" />
+		<result property="content" column="content" />
+		<result property="userid" column="userid" />
+
+		<collection property="trips" ofType="tripDto">
+			<id property="contentId" column="contentId" />
+			<result property="addr1" column="addr1" />
+			<result property="title" column="title" />
+			<result property="first_image" column="first_image" />
+			<result property="latitude" column="latitude" />
+			<result property="longitude" column="longitude" />
+		</collection>
+	</resultMap>
+
+	<select id="listPlan" resultMap="tripMap">
+		SELECT
+		p.planId,p.planTitle,p.date,p.content,p.userid,
+		a.contentId, a.title, a.addr1, a.first_image, a.latitude, a.longitude
+		FROM plan p
+		JOIN
+		plan_trip pt ON p.planId = pt.planId
+		JOIN attraction_info a ON
+		pt.contentId = a.contentId
+        limit 10;
+	</select>
+	
+	<select id="getPlan"  parameterType="int" resultMap="tripMap">
+		SELECT
+		p.planId, p.planTitle, p.date, p.content, p.userid,
+		a.contentId, a.title, a.addr1, a.first_image, a.latitude, a.longitude
+		FROM plan p
+		JOIN plan_trip pt 
+		ON p.planId = pt.planId
+		JOIN attraction_info a 
+		ON pt.contentId = a.contentId
+        where p.planId = #{planId}
+	</select>
 </mapper>    
 
 

@@ -2,7 +2,10 @@ package com.ssafy.travelmaker.model.service;
 
 import com.ssafy.travelmaker.model.PlanDto;
 
-public interface PlanService {
-    boolean register(PlanDto planDto) throws Exception;
+import java.util.List;
 
+public interface PlanService {
+    boolean register(PlanDto planDto);
+    List<PlanDto> listPlan();
+	PlanDto getPlan(int planId);
 }

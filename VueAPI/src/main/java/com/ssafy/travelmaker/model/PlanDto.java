@@ -9,8 +9,9 @@ import java.util.List;
 public class PlanDto implements Serializable {
 	private int planId;
 	private String userid;
-	private String title;
+	private String planTitle;
 	private String date;
 	private String content;
 	private List<PlanTripDto> plans;
+	private List<TripDto> trips;
 }
