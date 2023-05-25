@@ -61,7 +61,7 @@ Identify and stop the process that's listening on port 9999 or configure this ap
 [2m2023-05-19 09:00:09.628[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.m.s.mapper.ClassPathMapperScanner     [0;39m [2m:[0;39m No MyBatis mapper was found in '[com.ssafy.vue.model.mapper]' package. Please check your configuration.
 [2m2023-05-19 09:00:09.682[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port(s): 9999 (http)
 [2m2023-05-19 09:00:09.692[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 281 ms
-[2m2023-05-19 09:00:09.734[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:00:09.734[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -85,7 +85,7 @@ Identify and stop the process that's listening on port 9999 or configure this ap
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:00:09.756[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -127,7 +127,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -169,7 +169,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:1)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:1)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -180,7 +180,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [2m2023-05-19 09:02:04.394[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.m.s.mapper.ClassPathMapperScanner     [0;39m [2m:[0;39m No MyBatis mapper was found in '[com.ssafy.vue.model.mapper]' package. Please check your configuration.
 [2m2023-05-19 09:02:04.442[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port(s): 9999 (http)
 [2m2023-05-19 09:02:04.452[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 264 ms
-[2m2023-05-19 09:02:04.492[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:02:04.492[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -204,7 +204,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:02:04.500[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -246,7 +246,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -288,7 +288,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:1)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:1)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -308,8 +308,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseInfoDto cannot be resolved to a type
 
-[2m2023-05-19 09:02:25.705[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.HouseMapService
-[2m2023-05-19 09:02:25.720[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:02:25.705[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.MapService
+[2m2023-05-19 09:02:25.720[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -333,7 +333,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:02:25.727[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -375,7 +375,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -417,7 +417,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:1)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:1)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -446,8 +446,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseInfoDto cannot be resolved to a type
 
-[2m2023-05-19 09:02:32.524[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.HouseMapService
-[2m2023-05-19 09:02:32.542[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:02:32.524[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.MapService
+[2m2023-05-19 09:02:32.542[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -471,7 +471,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:02:32.549[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -513,7 +513,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -555,7 +555,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:1)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:1)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -584,8 +584,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseInfoDto cannot be resolved to a type
 
-[2m2023-05-19 09:03:42.022[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.HouseMapService
-[2m2023-05-19 09:03:42.036[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:03:42.022[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.MapService
+[2m2023-05-19 09:03:42.036[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -609,7 +609,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:03:42.041[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -651,7 +651,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	The declared package "com.ssafy.vue.controller" does not match the expected package "com.ssafy.travelmaker.controller"
 	The import com.ssafy.vue cannot be resolved
 	The import com.ssafy.vue cannot be resolved
@@ -693,7 +693,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:1)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:1)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -722,8 +722,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseInfoDto cannot be resolved to a type
 
-[2m2023-05-19 09:03:51.961[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.HouseMapService
-[2m2023-05-19 09:03:51.977[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:03:51.961[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.MapService
+[2m2023-05-19 09:03:51.977[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -739,7 +739,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:03:51.985[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -773,7 +773,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -799,7 +799,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:38)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:38)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -819,8 +819,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseInfoDto cannot be resolved to a type
 
-[2m2023-05-19 09:03:57.801[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.HouseMapService
-[2m2023-05-19 09:03:57.814[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:03:57.801[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.mybatis.spring.SqlSessionFactoryBean  [0;39m [2m:[0;39m Cannot load the 'file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\model\service\HouseMapServiceImpl.class]'. Cause by java.lang.NoClassDefFoundError: com.ssafy.travelmaker.model.service.MapService
+[2m2023-05-19 09:03:57.814[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -836,7 +836,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:03:57.821[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -870,7 +870,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -896,7 +896,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:38)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:38)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -907,7 +907,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [2m2023-05-19 09:04:36.420[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.m.s.mapper.ClassPathMapperScanner     [0;39m [2m:[0;39m No MyBatis mapper was found in '[com.ssafy.vue.model.mapper]' package. Please check your configuration.
 [2m2023-05-19 09:04:36.467[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port(s): 9999 (http)
 [2m2023-05-19 09:04:36.478[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 250 ms
-[2m2023-05-19 09:04:36.514[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:04:36.514[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -923,7 +923,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:04:36.521[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -957,7 +957,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -983,7 +983,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:38)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:38)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -994,7 +994,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 [2m2023-05-19 09:05:29.433[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.m.s.mapper.ClassPathMapperScanner     [0;39m [2m:[0;39m No MyBatis mapper was found in '[com.ssafy.vue.model.mapper]' package. Please check your configuration.
 [2m2023-05-19 09:05:29.480[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port(s): 9999 (http)
 [2m2023-05-19 09:05:29.489[0;39m [32m INFO[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 259 ms
-[2m2023-05-19 09:05:29.522[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+[2m2023-05-19 09:05:29.522[0;39m [33m WARN[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -1010,7 +1010,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 [2m2023-05-19 09:05:29.529[0;39m [31mERROR[0;39m [35m19248[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mo.s.boot.SpringApplication              [0;39m [2m:[0;39m Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'houseMapController' defined in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\VueAPI\target\classes\com\ssafy\travelmaker\controller\HouseMapController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -1044,7 +1044,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.HouseMapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ssafy.travelmaker.controller.MapController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems:
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
@@ -1070,7 +1070,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	HouseInfoDto cannot be resolved to a type
 	HouseMapService cannot be resolved to a type
 
-	at com.ssafy.travelmaker.controller.HouseMapController.<init>(HouseMapController.java:38)
+	at com.ssafy.travelmaker.controller.MapController.<init>(HouseMapController.java:38)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -4187,7 +4187,7 @@ Consider defining a bean of type 'com.ssafy.travelmaker.model.mapper.TripMapper'
 [2m2023-05-19 11:15:31.242[0;39m [31mERROR[0;39m [35m8268[0;39m [2m---[0;39m [2m[nio-9999-exec-6][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select left(gugunCode,5) gugunCode, gugunName   from guguncode   where left(gugunCode,2) = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
@@ -4222,8 +4222,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy107.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -4270,7 +4270,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
 [2m2023-05-19 11:15:33.527[0;39m [31mERROR[0;39m [35m8268[0;39m [2m---[0;39m [2m[nio-9999-exec-7][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select left(gugunCode,5) gugunCode, gugunName   from guguncode   where left(gugunCode,2) = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
@@ -4305,8 +4305,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'field list'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy107.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5054,7 +5054,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'where clause'
 [2m2023-05-19 15:08:29.440[0;39m [31mERROR[0;39m [35m7424[0;39m [2m---[0;39m [2m[nio-9999-exec-3][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select gugunCode, gugunName   from guguncode   where sidoCode = sido   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
@@ -5088,8 +5088,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy122.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5136,7 +5136,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 [2m2023-05-19 15:08:31.625[0;39m [31mERROR[0;39m [35m7424[0;39m [2m---[0;39m [2m[nio-9999-exec-2][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select gugunCode, gugunName   from guguncode   where sidoCode = sido   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
@@ -5170,8 +5170,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy122.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5254,7 +5254,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sido' in 'where clause'
 [2m2023-05-19 15:09:37.913[0;39m [31mERROR[0;39m [35m7424[0;39m [2m---[0;39m [2m[nio-9999-exec-3][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select sidoCode, sidoName   from guguncode   where sidoCode = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
@@ -5288,8 +5288,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy127.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5336,7 +5336,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
 [2m2023-05-19 15:09:40.003[0;39m [31mERROR[0;39m [35m7424[0;39m [2m---[0;39m [2m[nio-9999-exec-4][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
 ### The error may exist in file [C:\Users\SSAFY\Desktop\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select sidoCode, sidoName   from guguncode   where sidoCode = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
@@ -5370,8 +5370,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoName' in 'field list'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy127.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5488,8 +5488,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy132.getSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getSido(HouseMapServiceImpl.java:25)
-	at com.ssafy.travelmaker.controller.HouseMapController.sido(HouseMapController.java:46)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getSido(HouseMapServiceImpl.java:25)
+	at com.ssafy.travelmaker.controller.MapController.sido(HouseMapController.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5570,8 +5570,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'gugunCode' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy132.getSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getSido(HouseMapServiceImpl.java:25)
-	at com.ssafy.travelmaker.controller.HouseMapController.sido(HouseMapController.java:46)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getSido(HouseMapServiceImpl.java:25)
+	at com.ssafy.travelmaker.controller.MapController.sido(HouseMapController.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -6560,7 +6560,7 @@ java.sql.SQLSyntaxErrorException: Table 'ssafyvue.qna' doesn't exist
 [2m2023-05-20 01:17:43.265[0;39m [31mERROR[0;39m [35m15080[0;39m [2m---[0;39m [2m[nio-9999-exec-7][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 ### The error may exist in file [C:\ssafy\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select gugunCode, gugunName   from guguncode   where sidoCode = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
@@ -6595,8 +6595,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy106.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -6643,7 +6643,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 [2m2023-05-20 01:18:06.821[0;39m [31mERROR[0;39m [35m15080[0;39m [2m---[0;39m [2m[nio-9999-exec-8][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 ### The error may exist in file [C:\ssafy\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select gugunCode, gugunName   from guguncode   where sidoCode = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
@@ -6678,8 +6678,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy106.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -6726,7 +6726,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 [2m2023-05-20 01:19:05.401[0;39m [31mERROR[0;39m [35m15080[0;39m [2m---[0;39m [2m[nio-9999-exec-9][0;39m [36mo.a.c.c.C.[.[.[.[dispatcherServlet]     [0;39m [2m:[0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [/travelmaker] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 ### The error may exist in file [C:\ssafy\enjoy-trip-project\VueAPI\target\classes\mappers\apt.xml]
-### The error may involve com.ssafy.travelmaker.model.mapper.HouseMapMapper.getGugunInSido-Inline
+### The error may involve com.ssafy.travelmaker.model.mapper.MapMapper.getGugunInSido-Inline
 ### The error occurred while setting parameters
 ### SQL: select gugunCode, gugunName   from guguncode   where sidoCode = ?   order by gugunCode
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
@@ -6761,8 +6761,8 @@ java.sql.SQLSyntaxErrorException: Unknown column 'sidoCode' in 'where clause'
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
 	at com.sun.proxy.$Proxy106.getGugunInSido(Unknown Source)
-	at com.ssafy.travelmaker.model.service.HouseMapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
-	at com.ssafy.travelmaker.controller.HouseMapController.gugun(HouseMapController.java:54)
+	at com.ssafy.travelmaker.model.service.MapServiceImpl.getGugunInSido(HouseMapServiceImpl.java:30)
+	at com.ssafy.travelmaker.controller.MapController.gugun(HouseMapController.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
