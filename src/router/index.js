@@ -51,7 +51,7 @@ const routes = [
     children: [
       {
         path: "register",
-        name: "registerplan",
+        name: "register",
         component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserRegister"),
       },
       {

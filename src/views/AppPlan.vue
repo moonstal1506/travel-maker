@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "AppHouse",
+  name: "AppPlan",
 };
 </script>
 <style scoped></style>
