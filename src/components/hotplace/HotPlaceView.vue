@@ -17,7 +17,7 @@
     <b-row class="mb-1">
       <b-col>
         <b-card
-          :header-html="`<h3>${article.hotplaceno}.
+          :header-html="`<h3>${article.articleno}.
           ${article.subject} [${article.hit}]</h3><div><h6>${article.userid}</div><div>${article.regtime}</h6></div>`"
           class="mb-2"
           border-variant="dark"
@@ -30,16 +30,10 @@
         </b-card>
       </b-col>
     </b-row>
-
-    <!-- 댓글 -->
-    <comment-write @comment-added="loadComments"></comment-write>
-    <comment-list ref="CommentList"></comment-list>
   </b-container>
 </template>
 
 <script>
-import CommentWrite from "@/components/hotplace/comment/CommentWrite";
-import CommentList from "@/components/hotplace/comment/CommentList";
 import { getArticle } from "@/api/hotplace";
 import { mapState } from "vuex";
 
@@ -47,10 +41,7 @@ const memberStore = "memberStore";
 
 export default {
   name: "HotPlaceDetail",
-  components: {
-    CommentWrite,
-    CommentList,
-  },
+  components: {},
   filters: {
     urlTo(url) {
       return `http://localhost/hotplace/upload/image/${url}`;
@@ -69,7 +60,7 @@ export default {
     },
   },
   created() {
-    let param = this.$route.params.hotplaceno;
+    let param = this.$route.params.articleno;
     getArticle(
       param,
       ({ data }) => {
@@ -81,20 +72,17 @@ export default {
     );
   },
   methods: {
-    loadComments() {
-      this.$refs.CommentList.loadComments();
-    },
     moveModifyArticle() {
       this.$router.replace({
         name: "hotplacemodify",
-        params: { hotplaceno: this.article.hotplaceno },
+        params: { articleno: this.article.articleno },
       });
     },
     deleteArticle() {
       if (confirm("정말로 삭제?")) {
         this.$router.replace({
           name: "hotplacedelete",
-          params: { hotplaceno: this.article.hotplaceno },
+          params: { articleno: this.article.articleno },
         });
       }
     },

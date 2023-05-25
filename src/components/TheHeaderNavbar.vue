@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="success">
+  <div class="navbar-container">
+    <b-navbar toggleable="lg" type="dark" variant="success" fixed="top" class="custom-navbar">
       <b-navbar-brand href="#">
         <router-link :to="{ name: 'main' }" class="link">
           <h2>TravelMaker</h2>
@@ -103,9 +103,33 @@ export default {
 
 .ml-auto .drop {
   text-decoration: none;
-  color: rgb(61, 61, 61);
+  color: #9dc8c8;
 }
 .link {
-  color: aliceblue;
+  color: rgb(245, 255, 240);
+}
+
+.navbar-container {
+  margin-bottom: 100px;
+}
+
+.custom-navbar {
+  background-color: rgba(209, 182, 225, 0.8) !important;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.link {
+  color: rgb(245, 255, 240);
+  text-decoration: none; /* 밑줄 제거 */
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  transform: scale(1.15); /* 마우스를 갖다 대었을 때 크기를 1.15배로 확대 */
+}
+
+nav a:hover {
+  transform: scale(1.05);
 }
 </style>
