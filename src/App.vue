@@ -2,16 +2,20 @@
   <div id="app">
     <the-header-navbar></the-header-navbar>
     <router-view></router-view>
+    <br /><br />
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
 import TheHeaderNavbar from "@/components/TheHeaderNavbar";
+import TheFooter from "@/components/TheFooter";
 
 export default {
   name: "App",
   components: {
     TheHeaderNavbar,
+    TheFooter,
   },
 };
 </script>
@@ -22,7 +26,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #42576d;
 }
 
 .title {

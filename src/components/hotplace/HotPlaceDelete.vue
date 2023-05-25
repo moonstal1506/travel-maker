@@ -15,7 +15,7 @@ import { deleteArticle } from "@/api/hotplace";
 export default {
   name: "HotPlaceDelete",
   created() {
-    let param = this.$route.params.hotplaceno;
+    let param = this.$route.params.articleno;
     deleteArticle(
       param,
       ({ data }) => {
