@@ -34,10 +34,10 @@
 		p.planId,p.planTitle,p.date,p.content,p.userid,
 		a.contentId, a.title, a.addr1, a.first_image, a.latitude, a.longitude
 		FROM plan p
-		JOIN
-		plan_trip pt ON p.planId = pt.planId
-		JOIN attraction_info a ON
-		pt.contentId = a.contentId
+		JOIN plan_trip pt 
+		ON p.planId = pt.planId
+		JOIN attraction_info a 
+		ON pt.contentId = a.contentId
         limit 10;
 	</select>
 	
@@ -52,6 +52,12 @@
 		ON pt.contentId = a.contentId
         where p.planId = #{planId}
 	</select>
+	
+	<delete id="deletePlan" parameterType="int">
+		delete from plan
+		where planId = #{planId}
+	</delete>
+	
 </mapper>    
 
 

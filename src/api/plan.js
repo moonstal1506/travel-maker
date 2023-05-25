@@ -9,8 +9,9 @@ function listPlan(param, success, fail) {
   api.get(`/plan`, { params: param }).then(success).catch(fail);
 }
 function getPlan(planId, success, fail) {
-  console.log("js", planId);
   api.get(`/plan/${planId}`).then(success).catch(fail);
 }
-
-export { registerPlan, listPlan, getPlan };
+function deletePlan(planId, success, fail) {
+  api.delete(`/plan/${planId}`).then(success).catch(fail);
+}
+export { registerPlan, listPlan, getPlan, deletePlan };

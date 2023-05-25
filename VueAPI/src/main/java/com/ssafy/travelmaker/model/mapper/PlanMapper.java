@@ -10,4 +10,5 @@ public interface PlanMapper {
 	int register(PlanDto planDto) throws Exception;
     List<PlanDto> listPlan();
 	PlanDto getPlan(int planId);
+	boolean deletePlan(int planId);
 }

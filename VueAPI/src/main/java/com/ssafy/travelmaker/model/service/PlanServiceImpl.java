@@ -45,4 +45,9 @@ public class PlanServiceImpl implements PlanService {
 	public PlanDto getPlan(int planId) {
 		return sqlSession.getMapper(PlanMapper.class).getPlan(planId);
 	}
+
+	@Override
+	public boolean deletePlan(int planId) {
+		return sqlSession.getMapper(PlanMapper.class).deletePlan(planId);
+	}
 }

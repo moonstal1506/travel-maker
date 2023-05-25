@@ -41,7 +41,7 @@
         <b-button variant="outline-info" size="sm" @click="moveModifyArticle" class="mr-2"
           >글수정</b-button
         >
-        <b-button variant="outline-danger" size="sm" @click="deleteArticle">글삭제</b-button>
+        <b-button variant="outline-danger" size="sm" @click="remove">글삭제</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -50,9 +50,8 @@
 <script>
 // import CommentWrite from "@/components/board/comment/CommentWrite";
 // import CommentList from "@/components/board/comment/CommentList";
-import { getPlan } from "@/api/plan";
+import { getPlan, deletePlan } from "@/api/plan";
 import { mapState } from "vuex";
-
 const memberStore = "memberStore";
 
 export default {
@@ -95,14 +94,26 @@ export default {
     //     params: { planId: this.plan.planId },
     //   });
     // },
-    // deletePlan() {
-    //   if (confirm("정말로 삭제?")) {
-    //     this.$router.replace({
-    //       name: "plandelete",
-    //       params: { planId: this.plan.planId },
-    //     });
-    //   }
-    // },
+    remove() {
+      let param = this.$route.params.planId;
+      if (!confirm("정말로 삭제하시겠습니까?")) {
+        return;
+      }
+      deletePlan(
+        param,
+        ({ data }) => {
+          let msg = "삭제 처리시 문제가 발생했습니다.";
+          if (data === "success") {
+            msg = "삭제가 완료되었습니다.";
+          }
+          alert(msg);
+          this.$router.push({ name: "planlist" });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
     moveList() {
       this.$router.push({ name: "planlist" });
     },
