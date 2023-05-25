@@ -29,6 +29,7 @@ public class PlanController {
 
 	@PostMapping
 	public ResponseEntity<?> register(@RequestBody PlanDto planDto) throws Exception {
+		System.out.println(planDto);
 		if (planService.register(planDto)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 		}

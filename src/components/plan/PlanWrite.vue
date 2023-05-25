@@ -1,6 +1,6 @@
 <template>
   <b-container class="bv-example-row">
-    <div class="planTitle">
+    <div class="title">
       <h3><b-icon icon="house-fill"></b-icon>나만의 여행 계획</h3>
     </div>
     <b-row class="mt-3">
@@ -47,7 +47,7 @@
                   <b-col cols="2" class="text-center align-self-center">
                     <b-img thumbnail :src="plan.first_image" alt="Image 1"></b-img>
                   </b-col>
-                  <b-col cols="10" class="text-left">{{ plan.planTitle }} </b-col>
+                  <b-col cols="10" class="text-left">{{ plan.title }} </b-col>
                 </b-row>
               </h5>
               <b-button @click="remove(plan.contentId)" variant="light">x</b-button>

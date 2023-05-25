@@ -7,9 +7,9 @@
 
 	<insert id="register" parameterType="PlanDto"
 		useGeneratedKeys="true" keyProperty="planId">
-		INSERT INTO plan (userid, title,
+		INSERT INTO plan (userid, planTitle,
 		date, content)
-		VALUES (#{userid}, #{title}, #{date}, #{content})
+		VALUES (#{userid}, #{planTitle}, #{date}, #{content})
 	</insert>
 
 	<resultMap id="tripMap" type="planDto">
