@@ -5,7 +5,7 @@
       <p class="post-subtitle">나만의 여행 계획을 공유해보아요</p>
     </div>
     <hr class="my-4" />
-    <h2>{{ plan.title }}</h2>
+    <h2>{{ plan.planTitle }}</h2>
     <p>{{ plan.date }}</p>
     <hr class="my-4" />
 
@@ -26,14 +26,11 @@
         <div class="contents">
           <div class="year">{{ trip.title }}</div>
           <div class="title">{{ trip.addr1 }}</div>
-          <p class="description">
-            {{ trip.overview }}
-          </p>
         </div>
       </div>
       <div class="circle"></div>
     </div>
-
+    <br />
     <p>{{ plan.content }}</p>
 
     <b-row class="mb-1">
@@ -220,15 +217,16 @@ a {
 }
 
 .item .contents .year {
-  font-size: 35px;
+  font-size: 20px;
   color: #e25744;
   font-weight: bolder;
   margin: -10px 0;
+  margin-bottom: 5px;
   padding-top: 10px;
 }
 
 .item .contents .title {
-  font-size: 20px;
+  font-size: 15px;
   color: #6baba3;
   font-weight: bold;
   margin: 0;

@@ -21,7 +21,7 @@
               }"
             >
               <b-card
-                :title="plan.title"
+                :title="plan.planTitle"
                 :img-src="plan.trips[0].first_image || require('@/assets/mango.jpg')"
                 img-alt="Image"
                 img-top

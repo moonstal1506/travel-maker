@@ -1,6 +1,6 @@
 <template>
   <b-container class="bv-example-row">
-    <div class="title">
+    <div class="planTitle">
       <h3><b-icon icon="house-fill"></b-icon>나만의 여행 계획</h3>
     </div>
     <b-row class="mt-3">
@@ -20,7 +20,7 @@
       <b-col cols="6">
         <h3>여행 계획 작성</h3>
         <div class="mb-3">
-          <b-form-input v-model="title" placeholder="제목을 입력해주세요"></b-form-input>
+          <b-form-input v-model="planTitle" placeholder="제목을 입력해주세요"></b-form-input>
         </div>
         <div class="mb-3">
           <b-form-input v-model="date" id="type-date" type="date"></b-form-input>
@@ -47,7 +47,7 @@
                   <b-col cols="2" class="text-center align-self-center">
                     <b-img thumbnail :src="plan.first_image" alt="Image 1"></b-img>
                   </b-col>
-                  <b-col cols="10" class="text-left">{{ plan.title }} </b-col>
+                  <b-col cols="10" class="text-left">{{ plan.planTitle }} </b-col>
                 </b-row>
               </h5>
               <b-button @click="remove(plan.contentId)" variant="light">x</b-button>
@@ -86,7 +86,7 @@ export default {
   },
   data() {
     return {
-      title: "",
+      planTitle: "",
       date: "",
       content: "",
     };
@@ -116,7 +116,7 @@ export default {
       }
       let err = false;
       let msg = "";
-      if (!this.title) {
+      if (!this.planTitle) {
         msg = "제목 입력해주세요";
         err = true;
       }
@@ -138,7 +138,7 @@ export default {
       }
       const params = {
         userid: this.userInfo.userid,
-        title: this.title,
+        planTitle: this.planTitle,
         date: this.date,
         content: this.content,
         plans: this.plans,
