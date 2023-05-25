@@ -27,5 +27,8 @@ public class HotPlaceDto {
 	@ApiModelProperty(value = "이미지 파일")
 	private MultipartFile[] fileup;
 
-
+	private int contentId;
+	private String title;
+	private String addr1;
+	private String first_image;
 }

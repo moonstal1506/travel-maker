@@ -42,7 +42,7 @@ public class HotPlaceController {
 	@ApiOperation(value = "게시판 글작성", notes = "새로운 게시글 정보를 입력한다. 그리고 DB입력 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PostMapping
 	public ResponseEntity<String> writeArticle(@ModelAttribute @ApiParam(value = "게시글 정보.", required = true) HotPlaceDto hotplaceDto) throws Exception {
-
+		System.out.println(hotplaceDto);
 		logger.info("writeArticle - 호출");
 		if (hotplaceService.writeArticle(hotplaceDto)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);

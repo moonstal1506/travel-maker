@@ -5,17 +5,19 @@
 <mapper namespace="com.ssafy.travelmaker.model.mapper.HotPlaceMapper">
 
 	<insert id="writeArticle" parameterType="hotplaceDto">
-		insert into hotplace (userid, subject, content, hit, regtime)
-		values (#{userid}, #{subject}, #{content}, 0, now())
+		insert into hotplace (userid, subject, content, hit, regtime, contentId)
+		values (#{userid}, #{subject}, #{content}, 0, now(), #{contentId})
 	</insert>
 	
 	<select id="listArticle" parameterType="map" resultType="hotplaceDto">
-		select articleno, userid, subject, content, hit,
-				case when date_format(regtime, '%Y%m%d') = date_format(now(), '%Y%m%d')
+		select articleno, userid, subject, content, hit, title, addr1, first_image,
+		 case when date_format(regtime, '%Y%m%d') = date_format(now(), '%Y%m%d')
 				then date_format(regtime, '%H:%i:%s')
 				else date_format(regtime, '%y.%m.%d')
 				end regtime
 		from hotplace
+		join attraction_info
+		on hotplace.contentId = attraction_info.contentId
 		<if test="word != null and word != ''">
 			<if test="key == 'subject'">
 				where subject like concat('%', #{word}, '%')
@@ -42,8 +44,10 @@
 	</select>
 	
 	<select id="getArticle" parameterType="int" resultType="hotplaceDto">
-		select articleno, userid, subject, content, hit, regtime
-		from hotplace b
+		select articleno, userid, subject, content, hit, regtime,  title, addr1, first_image
+		from hotplace
+		join attraction_info
+		on hotplace.contentId=attraction_info.contentId
 		where articleno = #{articleno}
 	</select>
 
@@ -55,7 +59,7 @@
 	
 	<update id="modifyArticle" parameterType="hotplaceDto">
 		update hotplace
-		set subject = #{subject}, content = #{content}
+		set subject = #{subject}, content = #{content}, contentId = #{contentId}
 		where articleno = #{articleno}
 	</update>
 	

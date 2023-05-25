@@ -17,8 +17,12 @@
         <b-form-input type="text" v-model="word"></b-form-input>
       </b-col>
       <b-col class="text-left">
-        <b-button class="mr-4" variant="outline-success" @click="search()">검색</b-button>
-        <b-button variant="outline-success" @click="moveWrite()">글쓰기</b-button>
+        <b-button class="mr-4" variant="outline-success" @click="search()"
+          >검색</b-button
+        >
+        <b-button variant="outline-success" @click="moveWrite()"
+          >글쓰기</b-button
+        >
       </b-col>
     </b-row>
     <!-- 글 목록 -->
@@ -26,24 +30,32 @@
       <b-col>
         <b-container>
           <b-row>
-            <b-col v-for="(article, index) in articles" :key="index" class="grid-item">
-              <b-card>
-                <b-card-img :src="getArticleImage(article)" :alt="article.subject" top></b-card-img>
-                <b-card-title>
-                  <router-link
-                    :to="{
-                      name: 'hotplaceview',
-                      params: { articleno: article.articleno },
-                    }"
-                  >
+            <b-col
+              v-for="(article, index) in articles"
+              :key="index"
+              class="grid-item"
+            >
+              <router-link
+                :to="{
+                  name: 'hotplaceview',
+                  params: { articleno: article.articleno },
+                }"
+              >
+                <b-card>
+                  <b-card-img
+                    :src="article.first_image"
+                    :alt="article.subject"
+                    top
+                  ></b-card-img>
+                  <b-card-title>
                     {{ article.subject }}
-                  </router-link>
-                </b-card-title>
-                <b-card-text class="text-muted">
-                  작성자: {{ article.userid }}<br />
-                  조회수: {{ article.hit }}
-                </b-card-text>
-              </b-card>
+                  </b-card-title>
+                  <b-card-text class="text-muted">
+                    작성자: {{ article.userid }}<br />
+                    조회수: {{ article.hit }}
+                  </b-card-text>
+                </b-card>
+              </router-link>
             </b-col>
           </b-row>
         </b-container>

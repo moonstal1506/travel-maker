@@ -44,11 +44,25 @@
 
         <b-row class="d-flex justify-content-end mt-2">
           <b-col cols="auto">
-            <b-button type="submit" variant="primary" class="m-1" v-if="this.type === 'register'">
+            <b-button
+              type="submit"
+              variant="primary"
+              class="m-1"
+              v-if="this.type === 'register'"
+            >
               글작성
             </b-button>
-            <b-button type="submit" variant="outline-success" class="m-1" v-else> 글수정 </b-button>
-            <b-button type="reset" variant="outline-success" class="m-1">초기화</b-button>
+            <b-button
+              type="submit"
+              variant="outline-success"
+              class="m-1"
+              v-else
+            >
+              글수정
+            </b-button>
+            <b-button type="reset" variant="outline-success" class="m-1"
+              >초기화</b-button
+            >
           </b-col>
         </b-row>
       </b-form>
@@ -110,12 +124,12 @@ export default {
         articleno: 0,
         subject: "",
         content: "",
-        contentid: "",
       },
       selectedHouse: null, // 선택한 관광지 정보를 저장하는 변수
     };
   },
   computed: {
+    ...mapState(houseStore, ["house"]),
     ...mapState(houseStore, ["houses"]),
     ...mapState(memberStore, ["userInfo"]),
   },
@@ -143,20 +157,24 @@ export default {
       let err = true;
       let msg = "";
       !this.article.subject &&
-        ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
+        ((msg = "제목 입력해주세요"),
+        (err = false),
+        this.$refs.subject.focus());
       err &&
         !this.article.content &&
-        ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
+        ((msg = "내용 입력해주세요"),
+        (err = false),
+        this.$refs.content.focus());
 
       if (!err) alert(msg);
-      else this.type === "register" ? this.registArticle() : this.modifyArticle();
+      else
+        this.type === "register" ? this.registArticle() : this.modifyArticle();
     },
     onReset(event) {
       event.preventDefault();
       this.article.articleno = 0;
       this.article.subject = "";
       this.article.content = "";
-      this.article.contentid = "";
       this.moveList();
     },
     registArticle() {
@@ -169,9 +187,7 @@ export default {
       formData.append("userid", this.userInfo.userid);
       formData.append("subject", this.article.subject);
       formData.append("content", this.article.content);
-      formData.append("contentid", this.article.contentid);
-
-      console.log("dddd", formData);
+      formData.append("contentId", this.house.contentId);
       writeArticle(
         formData,
         ({ data }) => {
@@ -192,7 +208,7 @@ export default {
         articleno: this.article.articleno,
         subject: this.article.subject,
         content: this.article.content,
-        contentid: this.article.contentid,
+        contentId: this.house.contentId,
       };
       modifyArticle(
         param,
