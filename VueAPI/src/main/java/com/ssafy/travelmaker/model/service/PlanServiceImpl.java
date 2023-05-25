@@ -22,7 +22,7 @@ public class PlanServiceImpl implements PlanService {
 
 	@Transactional
 	@Override
-	public boolean register(PlanDto planDto) throws Exception {
+	public boolean register(PlanDto planDto) {
 		try {
 			sqlSession.getMapper(PlanMapper.class).register(planDto);
 			int planId = planDto.getPlanId();
@@ -39,5 +39,10 @@ public class PlanServiceImpl implements PlanService {
 	@Override
 	public List<PlanDto> listPlan() {
 		return sqlSession.getMapper(PlanMapper.class).listPlan();
+	}
+	
+	@Override
+	public PlanDto getPlan(int planId) {
+		return sqlSession.getMapper(PlanMapper.class).getPlan(planId);
 	}
 }

@@ -5,6 +5,7 @@ import com.ssafy.travelmaker.model.PlanDto;
 import java.util.List;
 
 public interface PlanService {
-    boolean register(PlanDto planDto) throws Exception;
+    boolean register(PlanDto planDto);
     List<PlanDto> listPlan();
+	PlanDto getPlan(int planId);
 }

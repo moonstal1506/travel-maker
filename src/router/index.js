@@ -126,6 +126,11 @@ const routes = [
         name: "planwrite",
         component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanWrite"),
       },
+      {
+        path: "view/:planId",
+        name: "planview",
+        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanView"),
+      },
     ],
   },
   {

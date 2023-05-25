@@ -20,17 +20,10 @@
       <b-col cols="6">
         <h3>여행 계획 작성</h3>
         <div class="mb-3">
-          <b-form-input
-            v-model="title"
-            placeholder="제목을 입력해주세요"
-          ></b-form-input>
+          <b-form-input v-model="title" placeholder="제목을 입력해주세요"></b-form-input>
         </div>
         <div class="mb-3">
-          <b-form-input
-            v-model="date"
-            id="type-date"
-            type="date"
-          ></b-form-input>
+          <b-form-input v-model="date" id="type-date" type="date"></b-form-input>
         </div>
         <div class="mb-3">
           <b-form-textarea
@@ -52,18 +45,12 @@
               <h5 class="mb-1">
                 <b-row>
                   <b-col cols="2" class="text-center align-self-center">
-                    <b-img
-                      thumbnail
-                      :src="plan.first_image"
-                      alt="Image 1"
-                    ></b-img>
+                    <b-img thumbnail :src="plan.first_image" alt="Image 1"></b-img>
                   </b-col>
                   <b-col cols="10" class="text-left">{{ plan.title }} </b-col>
                 </b-row>
               </h5>
-              <b-button @click="remove(plan.contentId)" variant="light"
-                >x</b-button
-              >
+              <b-button @click="remove(plan.contentId)" variant="light">x</b-button>
             </div>
             <div class="text-left">
               <p class="mb-1">
@@ -165,6 +152,7 @@ export default {
             msg = "등록이 완료되었습니다.";
           }
           alert(msg);
+          this.moveList();
         },
         (error) => {
           console.log(error);
@@ -173,6 +161,9 @@ export default {
     },
     colorChange(flag) {
       this.isColor = flag;
+    },
+    moveList() {
+      this.$router.push({ name: "planlist" });
     },
   },
   filters: {

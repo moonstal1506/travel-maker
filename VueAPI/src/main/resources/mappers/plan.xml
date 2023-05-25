@@ -40,6 +40,18 @@
 		pt.contentId = a.contentId
         limit 10;
 	</select>
+	
+	<select id="getPlan"  parameterType="int" resultMap="tripMap">
+		SELECT
+		p.planId, p.title, p.date, p.content, p.userid,
+		a.contentId, a.title, a.addr1, a.first_image, a.latitude, a.longitude
+		FROM plan p
+		JOIN plan_trip pt 
+		ON p.planId = pt.planId
+		JOIN attraction_info a 
+		ON pt.contentId = a.contentId
+        where p.planId = #{planId}
+	</select>
 </mapper>    
 
 
