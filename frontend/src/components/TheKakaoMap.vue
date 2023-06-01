@@ -16,12 +16,12 @@ export default {
     };
   },
   props: {
-    chargers: [],
+    locations: [],
   },
   watch: {
-    chargers() {
+    locations() {
       this.positions = [];
-      this.chargers.forEach((trip) => {
+      this.locations.forEach((trip) => {
         let obj = {};
         obj.title = trip.title;
         obj.latlng = new kakao.maps.LatLng(trip.latitude, trip.longitude);

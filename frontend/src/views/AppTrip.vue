@@ -5,7 +5,7 @@
     </div>
     <b-row class="mt-3">
       <b-col cols="12">
-        <the-kakao-map :chargers="trips"></the-kakao-map>
+        <the-kakao-map :locations="trips"></the-kakao-map>
       </b-col>
     </b-row>
     <b-row>

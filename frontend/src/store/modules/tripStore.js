@@ -97,7 +97,7 @@ const tripStore = {
         }
       );
     },
-    detailtTrip: ({ commit }, trip) => {
+    detailTrip: ({ commit }, trip) => {
       commit("SET_DETAIL_TRIP", trip);
     },
     addPlan: ({ commit }, plan) => {
