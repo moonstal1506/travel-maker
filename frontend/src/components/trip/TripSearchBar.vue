@@ -2,7 +2,10 @@
   <div>
     <b-row class="mt-4 mb-4 text-center">
       <select-sido @select-sido="selectSido"></select-sido>
-      <select-gugun :sidoCode="sidoCode" @select-gugun="selectGugun"></select-gugun>
+      <select-gugun
+        :sidoCode="sidoCode"
+        @select-gugun="selectGugun"
+      ></select-gugun>
       <select-content-type-id
         @select-content-type-id="selectContentTypeId"
       ></select-content-type-id>
@@ -19,10 +22,10 @@ import SelectContentTypeId from "@/components/item/SelectContentTypeId.vue";
 import SearchTitle from "@/components/item/SearchTitle.vue";
 
 const itemStore = "itemStore";
-const houseStore = "houseStore";
+const tripStore = "tripStore";
 
 export default {
-  name: "HouseSearchBar",
+  name: "TripSearchBar",
   components: {
     SelectSido,
     SelectGugun,
@@ -39,7 +42,7 @@ export default {
   computed: {},
   created() {},
   methods: {
-    ...mapActions(houseStore, ["getHouseList"]),
+    ...mapActions(tripStore, ["getTripList"]),
     ...mapActions(itemStore, ["getGugun"]),
     ...mapMutations(itemStore, ["CLEAR_DETAIL"]),
     selectSido(sidoCode) {
@@ -53,7 +56,7 @@ export default {
         gugunCode,
         sidoCode: this.sidoCode,
       };
-      if (gugunCode) this.getHouseList(params);
+      if (gugunCode) this.getTripList(params);
     },
     selectContentTypeId(contentTypeId) {
       console.log("contentTypeId : ", this.contentTypeId);
@@ -62,7 +65,7 @@ export default {
         sidoCode: this.sidoCode,
         contentTypeId,
       };
-      if (contentTypeId) this.getHouseList(params);
+      if (contentTypeId) this.getTripList(params);
     },
     searchTitle(title) {
       console.log("title : ", this.title);
@@ -72,7 +75,7 @@ export default {
         contentTypeId: this.contentTypeId,
         title,
       };
-      this.getHouseList(params);
+      this.getTripList(params);
     },
   },
 };

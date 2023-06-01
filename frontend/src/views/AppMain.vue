@@ -16,7 +16,9 @@
           @sliding-end="onSlideEnd"
         >
           <!-- Slides with custom text -->
-          <b-carousel-slide img-src="https://i.ibb.co/xgxrVD7/pexels-caroline-cagnin-2007401.jpg">
+          <b-carousel-slide
+            img-src="https://i.ibb.co/xgxrVD7/pexels-caroline-cagnin-2007401.jpg"
+          >
             <h1>Travel Maker</h1>
           </b-carousel-slide>
           <!-- Text slides with image -->
@@ -51,10 +53,10 @@
       <hr class="my-4" />
       <div>
         <div class="row">
-          <div class="col-md-4" v-for="(house, index) in houses" :key="index">
+          <div class="col-md-4" v-for="(trip, index) in trips" :key="index">
             <b-card
-              :title="house.title"
-              :img-src="house.first_image || require('@/assets/mango.jpg')"
+              :title="trip.title"
+              :img-src="trip.first_image || require('@/assets/mango.jpg')"
               img-alt="Image"
               img-top
               tag="article"
@@ -71,13 +73,13 @@
             >
               <template #img-top>
                 <b-img
-                  :src="house.first_image || require('@/assets/mango.jpg')"
+                  :src="trip.first_image || require('@/assets/mango.jpg')"
                   alt="Image"
                   class="card-img"
                   style="object-fit: cover; width: 100%; height: 66%"
                 ></b-img>
               </template>
-              <b-card-text class="card-content">{{ house.addr1 }}</b-card-text>
+              <b-card-text class="card-content">{{ trip.addr1 }}</b-card-text>
             </b-card>
           </div>
         </div>
@@ -88,7 +90,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-const houseStore = "houseStore";
+const tripStore = "tripStore";
 
 export default {
   name: "AppMain",
@@ -102,10 +104,10 @@ export default {
     this.getCurrentPosition();
   },
   computed: {
-    ...mapState(houseStore, ["houses"]),
+    ...mapState(tripStore, ["trips"]),
   },
   methods: {
-    ...mapActions(houseStore, ["getHouseList"]),
+    ...mapActions(tripStore, ["getTripList"]),
     getCurrentPosition() {
       navigator.geolocation.getCurrentPosition(
         this.getPositionSuccess,
@@ -119,7 +121,7 @@ export default {
         latitude,
         longitude,
       };
-      this.getHouseList(params);
+      this.getTripList(params);
     },
     getPositionError() {
       alert("위치를 찾을 수 없습니다.");

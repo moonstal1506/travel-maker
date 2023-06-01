@@ -10,8 +10,8 @@ function gugunList(params, success, fail) {
   api.get(`/map/gugun`, { params: params }).then(success).catch(fail);
 }
 
-function houseList(params, success, fail) {
+function tripList(params, success, fail) {
   api.get(`/trip/data`, { params: params }).then(success).catch(fail);
 }
 
-export { sidoList, gugunList, houseList };
+export { sidoList, gugunList, tripList };

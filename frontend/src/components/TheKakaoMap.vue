@@ -20,7 +20,6 @@ export default {
   },
   watch: {
     chargers() {
-      console.log("충전소", this.chargers);
       this.positions = [];
       this.chargers.forEach((trip) => {
         let obj = {};

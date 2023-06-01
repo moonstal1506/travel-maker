@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import store from "@/store";
-import AppHouse from "@/views/AppHouse";
+import AppTrip from "@/views/AppTrip";
 import AppElectricCharger from "@/views/AppElectricCharger";
 
 Vue.use(VueRouter);
@@ -35,9 +35,9 @@ const routes = [
     component: AppMain,
   },
   {
-    path: "/house",
-    name: "house",
-    component: AppHouse,
+    path: "/trip",
+    name: "trip",
+    component: AppTrip,
   },
   {
     path: "/electric",
@@ -52,24 +52,30 @@ const routes = [
       {
         path: "register",
         name: "register",
-        component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserRegister"),
+        component: () =>
+          import(
+            /* webpackChunkName: "user" */ "@/components/user/UserRegister"
+          ),
       },
       {
         path: "login",
         name: "login",
-        component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserLogin"),
+        component: () =>
+          import(/* webpackChunkName: "user" */ "@/components/user/UserLogin"),
       },
       {
         path: "mypage",
         name: "mypage",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserMyPage"),
+        component: () =>
+          import(/* webpackChunkName: "user" */ "@/components/user/UserMyPage"),
       },
       {
         path: "update",
         name: "update",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "user" */ "@/components/user/UserUpdate"),
+        component: () =>
+          import(/* webpackChunkName: "user" */ "@/components/user/UserUpdate"),
       },
     ],
   },
@@ -82,31 +88,46 @@ const routes = [
       {
         path: "list",
         name: "boardlist",
-        component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardList"),
+        component: () =>
+          import(
+            /* webpackChunkName: "board" */ "@/components/board/BoardList"
+          ),
       },
       {
         path: "write",
         name: "boardwrite",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardWrite"),
+        component: () =>
+          import(
+            /* webpackChunkName: "board" */ "@/components/board/BoardWrite"
+          ),
       },
       {
         path: "view/:articleno",
         name: "boardview",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardView"),
+        component: () =>
+          import(
+            /* webpackChunkName: "board" */ "@/components/board/BoardView"
+          ),
       },
       {
         path: "modify",
         name: "boardmodify",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardModify"),
+        component: () =>
+          import(
+            /* webpackChunkName: "board" */ "@/components/board/BoardModify"
+          ),
       },
       {
         path: "delete/:articleno",
         name: "boarddelete",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "board" */ "@/components/board/BoardDelete"),
+        component: () =>
+          import(
+            /* webpackChunkName: "board" */ "@/components/board/BoardDelete"
+          ),
       },
     ],
   },
@@ -119,59 +140,73 @@ const routes = [
       {
         path: "list",
         name: "planlist",
-        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanList"),
+        component: () =>
+          import(/* webpackChunkName: "plan" */ "@/components/plan/PlanList"),
       },
       {
         path: "write",
         name: "planwrite",
-        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanWrite"),
+        component: () =>
+          import(/* webpackChunkName: "plan" */ "@/components/plan/PlanWrite"),
       },
       {
         path: "view/:planId",
         name: "planview",
-        component: () => import(/* webpackChunkName: "plan" */ "@/components/plan/PlanView"),
+        component: () =>
+          import(/* webpackChunkName: "plan" */ "@/components/plan/PlanView"),
       },
     ],
   },
   {
     path: "/hotplace",
     name: "hotplace",
-    component: () => import(/* webpackChunkName: "hotplace" */ "@/views/AppHotPlace"),
+    component: () =>
+      import(/* webpackChunkName: "hotplace" */ "@/views/AppHotPlace"),
     redirect: "/hotplace/list",
     children: [
       {
         path: "list",
         name: "hotplacelist",
         component: () =>
-          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceList"),
+          import(
+            /* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceList"
+          ),
       },
       {
         path: "write",
         name: "hotplacewrite",
         beforeEnter: onlyAuthUser,
         component: () =>
-          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceWrite"),
+          import(
+            /* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceWrite"
+          ),
       },
       {
         path: "view/:hotplaceno",
         name: "hotplaceview",
         beforeEnter: onlyAuthUser,
         component: () =>
-          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceView"),
+          import(
+            /* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceView"
+          ),
       },
       {
         path: "modify",
         name: "hotplacemodify",
         beforeEnter: onlyAuthUser,
         component: () =>
-          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceModify"),
+          import(
+            /* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceModify"
+          ),
       },
       {
         path: "delete/:hotplaceno",
         name: "hotplacedelete",
         beforeEnter: onlyAuthUser,
         component: () =>
-          import(/* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceDelete"),
+          import(
+            /* webpackChunkName: "hotplace" */ "@/components/hotplace/HotPlaceDelete"
+          ),
       },
     ],
   },
@@ -184,31 +219,36 @@ const routes = [
       {
         path: "list",
         name: "qnalist",
-        component: () => import(/* webpackChunkName: "qna" */ "@/components/qna/QnaList"),
+        component: () =>
+          import(/* webpackChunkName: "qna" */ "@/components/qna/QnaList"),
       },
       {
         path: "write",
         name: "qnawrite",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "qna" */ "@/components/qna/QnaWrite"),
+        component: () =>
+          import(/* webpackChunkName: "qna" */ "@/components/qna/QnaWrite"),
       },
       {
         path: "view/:articleno",
         name: "qnaview",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "qna" */ "@/components/qna/QnaView"),
+        component: () =>
+          import(/* webpackChunkName: "qna" */ "@/components/qna/QnaView"),
       },
       {
         path: "modify",
         name: "qnamodify",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "qna" */ "@/components/qna/QnaModify"),
+        component: () =>
+          import(/* webpackChunkName: "qna" */ "@/components/qna/QnaModify"),
       },
       {
         path: "delete/:articleno",
         name: "qnadelete",
         beforeEnter: onlyAuthUser,
-        component: () => import(/* webpackChunkName: "qna" */ "@/components/qna/QnaDelete"),
+        component: () =>
+          import(/* webpackChunkName: "qna" */ "@/components/qna/QnaDelete"),
       },
     ],
   },

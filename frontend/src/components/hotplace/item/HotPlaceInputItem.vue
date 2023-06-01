@@ -28,17 +28,17 @@
         </b-form-group>
         <b-row class="d-flex justify-content-center">
           <b-col cols="6">
-            <house-search-bar></house-search-bar>
+            <trip-search-bar></trip-search-bar>
           </b-col>
         </b-row>
         <b-row class="d-flex justify-content-center">
           <b-col cols="6">
-            <!-- house-list 컴포넌트에서 선택한 관광지 정보를 house-detail2로 전달 -->
-            <house-list type="plan" @selected="updateSelectedHouse" />
+            <!-- trip-list 컴포넌트에서 선택한 관광지 정보를 trip-detail2로 전달 -->
+            <trip-list type="plan" @selected="updateSelectedTrip" />
           </b-col>
           <b-col cols="3">
-            <house-detail2 :selectedHouse="selectedHouse" />
-            <!-- 선택한 관광지 정보를 housedetail2 컴포넌트에 전달 -->
+            <trip-detail :selectedTrip="selectedtTrip" />
+            <!-- 선택한 관광지 정보를 tripdetail2 컴포넌트에 전달 -->
           </b-col>
         </b-row>
 
@@ -71,9 +71,9 @@
 </template>
 
 <script>
-import HouseSearchBar from "@/components/house/HouseSearchBar.vue";
-import HouseDetail2 from "@/components/house/HouseDetail2.vue";
-import HouseList from "@/components/house/HouseList.vue";
+import TripSearchBar from "@/components/trip/TripSearchBar.vue";
+import TripDetail from "@/components/trip/TripDetail.vue";
+import TripList from "@/components/trip/TripList.vue";
 import { writeArticle, modifyArticle, getArticle } from "@/api/hotplace"; // 백엔드 API 호출 관련 모듈 import
 import hljs from "highlight.js";
 import { quillEditor } from "vue-quill-editor";
@@ -84,15 +84,15 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 
 const memberStore = "memberStore";
-const houseStore = "houseStore";
+const tripStore = "tripStore";
 export default {
   name: "HotPlaceInputItem",
   title: "Theme: snow",
   components: {
-    HouseSearchBar,
-    HouseList,
+    TripSearchBar,
+    TripList,
     quillEditor,
-    HouseDetail2,
+    TripDetail,
   },
   data() {
     return {
@@ -125,12 +125,12 @@ export default {
         subject: "",
         content: "",
       },
-      selectedHouse: null, // 선택한 관광지 정보를 저장하는 변수
+      selectedTrip: null, // 선택한 관광지 정보를 저장하는 변수
     };
   },
   computed: {
-    ...mapState(houseStore, ["house"]),
-    ...mapState(houseStore, ["houses"]),
+    ...mapState(tripStore, ["trip"]),
+    ...mapState(tripStore, ["trips"]),
     ...mapState(memberStore, ["userInfo"]),
   },
   props: {
@@ -187,7 +187,7 @@ export default {
       formData.append("userid", this.userInfo.userid);
       formData.append("subject", this.article.subject);
       formData.append("content", this.article.content);
-      formData.append("contentId", this.house.contentId);
+      formData.append("contentId", this.trip.contentId);
       writeArticle(
         formData,
         ({ data }) => {
@@ -208,7 +208,7 @@ export default {
         articleno: this.article.articleno,
         subject: this.article.subject,
         content: this.article.content,
-        contentId: this.house.contentId,
+        contentId: this.trip.contentId,
       };
       modifyArticle(
         param,
@@ -240,8 +240,8 @@ export default {
     onEditorReady(editor) {
       console.log("editor ready!", editor);
     },
-    updateSelectedHouse(house) {
-      this.selectedHouse = house; // 선택한 관광지 정보를 업데이트
+    updateSelectedTrip(trip) {
+      this.selectedTrip = trip; // 선택한 관광지 정보를 업데이트
     },
   },
 };

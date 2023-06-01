@@ -1,29 +1,36 @@
 <template>
   <b-container class="bv-example-row">
     <div class="title">
-      <h3><b-icon icon="house-fill"></b-icon>나만의 여행 계획</h3>
+      <h3><b-icon icon="trip-fill"></b-icon>나만의 여행 계획</h3>
     </div>
     <b-row class="mt-3">
       <b-col cols="12">
-        <the-kakao-map :chargers="houses"></the-kakao-map>
+        <the-kakao-map :chargers="trips"></the-kakao-map>
       </b-col>
     </b-row>
     <b-row>
       <b-col>
-        <house-search-bar></house-search-bar>
+        <trip-search-bar></trip-search-bar>
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="6" align="left">
-        <house-list type="plan" />
+        <trip-list type="plan" />
       </b-col>
       <b-col cols="6">
         <h3>여행 계획 작성</h3>
         <div class="mb-3">
-          <b-form-input v-model="planTitle" placeholder="제목을 입력해주세요"></b-form-input>
+          <b-form-input
+            v-model="planTitle"
+            placeholder="제목을 입력해주세요"
+          ></b-form-input>
         </div>
         <div class="mb-3">
-          <b-form-input v-model="date" id="type-date" type="date"></b-form-input>
+          <b-form-input
+            v-model="date"
+            id="type-date"
+            type="date"
+          ></b-form-input>
         </div>
         <div class="mb-3">
           <b-form-textarea
@@ -45,12 +52,18 @@
               <h5 class="mb-1">
                 <b-row>
                   <b-col cols="2" class="text-center align-self-center">
-                    <b-img thumbnail :src="plan.first_image" alt="Image 1"></b-img>
+                    <b-img
+                      thumbnail
+                      :src="plan.first_image"
+                      alt="Image 1"
+                    ></b-img>
                   </b-col>
                   <b-col cols="10" class="text-left">{{ plan.title }} </b-col>
                 </b-row>
               </h5>
-              <b-button @click="remove(plan.contentId)" variant="light">x</b-button>
+              <b-button @click="remove(plan.contentId)" variant="light"
+                >x</b-button
+              >
             </div>
             <div class="text-left">
               <p class="mb-1">
@@ -70,18 +83,18 @@
 <script>
 import { registerPlan } from "@/api/plan";
 import { mapState, mapActions } from "vuex";
-import HouseSearchBar from "@/components/house/HouseSearchBar.vue";
-import HouseList from "@/components/house/HouseList.vue";
+import TripSearchBar from "@/components/trip/TripSearchBar.vue";
+import TripList from "@/components/trip/TripList.vue";
 import TheKakaoMap from "@/components/TheKakaoMap.vue";
 
-const houseStore = "houseStore";
+const tripStore = "tripStore";
 const memberStore = "memberStore";
 
 export default {
   name: "PlanWrite",
   components: {
-    HouseSearchBar,
-    HouseList,
+    TripSearchBar,
+    TripList,
     TheKakaoMap,
   },
   data() {
@@ -92,16 +105,16 @@ export default {
     };
   },
   computed: {
-    ...mapState(houseStore, ["houses"]),
-    ...mapState(houseStore, ["plans"]),
+    ...mapState(tripStore, ["trips"]),
+    ...mapState(tripStore, ["plans"]),
     ...mapState(memberStore, ["userInfo"]),
   },
   created() {
     this.reset();
   },
   methods: {
-    ...mapActions(houseStore, ["resetPlans"]),
-    ...mapActions(houseStore, ["setPlan"]),
+    ...mapActions(tripStore, ["resetPlans"]),
+    ...mapActions(tripStore, ["setPlan"]),
     reset() {
       this.resetPlans();
     },

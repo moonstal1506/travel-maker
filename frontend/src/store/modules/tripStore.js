@@ -1,12 +1,12 @@
-import { sidoList, gugunList, houseList } from "@/api/house.js";
+import { sidoList, gugunList, tripList } from "@/api/trip.js";
 
-const houseStore = {
+const tripStore = {
   namespaced: true,
   state: {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
-    houses: [],
-    house: null,
+    trips: [],
+    trip: null,
     plans: [],
   },
   getters: {},
@@ -18,11 +18,11 @@ const houseStore = {
       state.guguns = [{ value: null, text: "선택하세요" }];
     },
     CLEAR_APT_LIST(state) {
-      state.houses = [];
-      state.house = null;
+      state.trips = [];
+      state.trip = null;
     },
     CLEAR_DETAIL(state) {
-      state.house = null;
+      state.trip = null;
     },
     SET_SIDO_LIST(state, sidos) {
       sidos.forEach((sido) => {
@@ -34,11 +34,11 @@ const houseStore = {
         state.guguns.push({ value: gugun.gugunCode, text: gugun.gugunName });
       });
     },
-    SET_HOUSE_LIST(state, houses) {
-      state.houses = houses;
+    SET_TRIP_LIST(state, trips) {
+      state.trips = trips;
     },
-    SET_DETAIL_HOUSE(state, house) {
-      state.house = house;
+    SET_DETAIL_TRIP(state, trip) {
+      state.trip = trip;
     },
     ADD_PLAN_LIST(state, plan) {
       state.plans.push({
@@ -78,7 +78,7 @@ const houseStore = {
         }
       );
     },
-    getHouseList: ({ commit }, data) => {
+    getTripList: ({ commit }, data) => {
       const params = {
         gugunCode: data.gugunCode,
         sidoCode: data.sidoCode,
@@ -87,18 +87,18 @@ const houseStore = {
         latitude: data.latitude,
         longitude: data.longitude,
       };
-      houseList(
+      tripList(
         params,
         ({ data }) => {
-          commit("SET_HOUSE_LIST", data);
+          commit("SET_TRIP_LIST", data);
         },
         (error) => {
           console.log(error);
         }
       );
     },
-    detailHouse: ({ commit }, house) => {
-      commit("SET_DETAIL_HOUSE", house);
+    detailtTrip: ({ commit }, trip) => {
+      commit("SET_DETAIL_TRIP", trip);
     },
     addPlan: ({ commit }, plan) => {
       commit("ADD_PLAN_LIST", plan);
@@ -112,4 +112,4 @@ const houseStore = {
   },
 };
 
-export default houseStore;
+export default tripStore;

@@ -1,15 +1,15 @@
 <template>
   <b-row
     class="m-2"
-    @click="selectHouse"
+    @click="selectTrip"
     @mouseover="colorChange(true)"
     @mouseout="colorChange(false)"
     :class="{ 'mouse-over-bgcolor': isColor }"
   >
     <b-col cols="2" class="text-center align-self-center">
-      <b-img thumbnail :src="house.first_image" alt="Image 1"></b-img>
+      <b-img thumbnail :src="trip.first_image" alt="Image 1"></b-img>
     </b-col>
-    <b-col cols="9" class="align-self-center">{{ house.title }} </b-col>
+    <b-col cols="9" class="align-self-center">{{ trip.title }} </b-col>
     <b-button cols="1" variant="light">+</b-button>
   </b-row>
 </template>
@@ -17,25 +17,25 @@
 <script>
 import { mapActions } from "vuex";
 
-const houseStore = "houseStore";
+const tripStore = "tripStore";
 export default {
-  name: "HouseListItem",
+  name: "TripListItem",
   data() {
     return {
       isColor: false,
     };
   },
   props: {
-    house: Object,
+    trip: Object,
   },
   methods: {
-    ...mapActions(houseStore, ["detailHouse"]),
-    ...mapActions(houseStore, ["addPlan"]),
+    ...mapActions(tripStore, ["detailTrip"]),
+    ...mapActions(tripStore, ["addPlan"]),
 
-    selectHouse() {
-      this.detailHouse(this.house);
-      this.addPlan(this.house);
-      console.log("methods", this.house);
+    selectTrip() {
+      this.detailTrip(this.trip);
+      this.addPlan(this.trip);
+      console.log("methods", this.trip);
     },
     colorChange(flag) {
       this.isColor = flag;
