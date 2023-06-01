@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+const tripStore = "tripStore";
+
 export default {
   name: "KakaoMap",
   components: {},
@@ -21,7 +24,7 @@ export default {
   watch: {
     locations() {
       this.positions = [];
-      this.locations.forEach((trip) => {
+      this.trips.forEach((trip) => {
         let obj = {};
         obj.title = trip.title;
         obj.latlng = new kakao.maps.LatLng(trip.latitude, trip.longitude);
@@ -36,9 +39,13 @@ export default {
     // api 스크립트 소스 불러오기 및 지도 출력
     if (window.kakao && window.kakao.maps) {
       this.loadMap();
+      this.loadMaker();
     } else {
       this.loadScript();
     }
+  },
+  computed: {
+    ...mapState(tripStore, ["trips"]),
   },
   methods: {
     // api 불러오기
@@ -66,17 +73,16 @@ export default {
     },
     // 지정한 위치에 마커 불러오기
     loadMaker() {
-      // 현재 표시되어있는 marker들이 있다면 marker에 등록된 map을 없애준다.
-      console.log("1111");
-      this.deleteMarker();
-      console.log("2222");
-      // 마커 이미지를 생성합니다
-      //   const imgSrc = require("@/assets/map/markerStar.png");
-      // 마커 이미지의 이미지 크기 입니다
-      //   const imgSize = new kakao.maps.Size(24, 35);
-      //   const markerImage = new kakao.maps.MarkerImage(imgSrc, imgSize);
+      this.positions = [];
+      this.trips.forEach((trip) => {
+        let obj = {};
+        obj.title = trip.title;
+        obj.latlng = new kakao.maps.LatLng(trip.latitude, trip.longitude);
 
-      // 마커를 생성합니다
+        this.positions.push(obj);
+      });
+
+      this.deleteMarker();
       this.markers = [];
       this.positions.forEach((position) => {
         const marker = new kakao.maps.Marker({
