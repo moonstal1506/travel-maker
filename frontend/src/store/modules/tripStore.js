@@ -41,11 +41,14 @@ const tripStore = {
       state.trip = trip;
     },
     ADD_PLAN_LIST(state, plan) {
+      console.log("여기여유", plan);
       state.plans.push({
         contentId: plan.contentId,
         first_image: plan.first_image,
         title: plan.title,
         addr1: plan.addr1,
+        latitude: plan.latitude,
+        longitude: plan.longitude,
       });
     },
     RESET_PLAN_LIST(state) {
