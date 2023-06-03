@@ -18,7 +18,7 @@
         :key="index"
       >
         <b-img
-          :src="trip.first_image || require('@/assets/mango.jpg')"
+          :src="trip.first_image || require('@/assets/img.jpg')"
           alt="trip"
           width="50"
           height="50"
@@ -37,11 +37,20 @@
       <b-col class="text-left">
         <b-button variant="outline-primary" @click="moveList">목록</b-button>
       </b-col>
-      <b-col class="text-right" v-if="userInfo ? userInfo.userid === plan.userid : false">
-        <b-button variant="outline-info" size="sm" @click="moveModifyArticle" class="mr-2"
+      <b-col
+        class="text-right"
+        v-if="userInfo ? userInfo.userid === plan.userid : false"
+      >
+        <b-button
+          variant="outline-info"
+          size="sm"
+          @click="moveModifyArticle"
+          class="mr-2"
           >글수정</b-button
         >
-        <b-button variant="outline-danger" size="sm" @click="remove">글삭제</b-button>
+        <b-button variant="outline-danger" size="sm" @click="remove"
+          >글삭제</b-button
+        >
       </b-col>
     </b-row>
   </b-container>

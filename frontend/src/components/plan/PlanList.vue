@@ -8,7 +8,9 @@
       <hr class="my-4" />
       <b-row class="mb-3">
         <b-col class="text-left">
-          <b-button variant="outline-success" @click="moveWrite()">계획세우기</b-button>
+          <b-button variant="outline-success" @click="moveWrite()"
+            >계획세우기</b-button
+          >
         </b-col>
       </b-row>
       <div>
@@ -22,7 +24,9 @@
             >
               <b-card
                 :title="plan.planTitle"
-                :img-src="plan.trips[0].first_image || require('@/assets/mango.jpg')"
+                :img-src="
+                  plan.trips[0].first_image || require('@/assets/img.jpg')
+                "
                 img-alt="Image"
                 img-top
                 tag="article"

@@ -15,7 +15,7 @@
     </p>
     <hr class="my-4" />
     <b-img
-      :src="article.first_image || require('@/assets/mango.jpg')"
+      :src="article.first_image || require('@/assets/img.jpg')"
       alt="trip"
       width="600"
       height="600"

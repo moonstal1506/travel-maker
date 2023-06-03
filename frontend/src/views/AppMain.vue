@@ -53,7 +53,7 @@
           <div class="col-md-4" v-for="(trip, index) in trips" :key="index">
             <b-card
               :title="trip.title"
-              :img-src="trip.first_image || require('@/assets/mango.jpg')"
+              :img-src="trip.first_image || require('@/assets/img.jpg')"
               img-alt="Image"
               img-top
               tag="article"
@@ -70,7 +70,7 @@
             >
               <template #img-top>
                 <b-img
-                  :src="trip.first_image || require('@/assets/mango.jpg')"
+                  :src="trip.first_image || require('@/assets/img.jpg')"
                   alt="Image"
                   class="card-img"
                   style="object-fit: cover; width: 100%; height: 66%"
