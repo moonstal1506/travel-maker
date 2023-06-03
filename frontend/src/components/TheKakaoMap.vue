@@ -33,6 +33,11 @@ export default {
       });
       this.loadMaker();
     },
+    trip(newTrip) {
+      if (newTrip) {
+        this.moveCenter(newTrip);
+      }
+    },
   },
   created() {},
   mounted() {
@@ -46,6 +51,7 @@ export default {
   },
   computed: {
     ...mapState(tripStore, ["trips"]),
+    ...mapState(tripStore, ["trip"]),
   },
   methods: {
     // api 불러오기
@@ -112,6 +118,10 @@ export default {
           item.setMap(null);
         });
       }
+    },
+    moveCenter(trip) {
+      this.map.setLevel(2);
+      this.map.setCenter(new kakao.maps.LatLng(trip.latitude, trip.longitude));
     },
   },
 };
