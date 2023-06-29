@@ -1,4 +1,4 @@
-import { sidoList, gugunList, tripList } from "@/api/trip.js";
+import { sidoList, gugunList, tripList, mainTripList } from "@/api/trip.js";
 
 const tripStore = {
   namespaced: true,
@@ -41,7 +41,6 @@ const tripStore = {
       state.trip = trip;
     },
     ADD_PLAN_LIST(state, plan) {
-      console.log("여기여유", plan);
       state.plans.push({
         contentId: plan.contentId,
         first_image: plan.first_image,
@@ -75,6 +74,21 @@ const tripStore = {
         params,
         ({ data }) => {
           commit("SET_GUGUN_LIST", data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+    getMainTripList: ({ commit }, data) => {
+      const params = {
+        latitude: data.latitude,
+        longitude: data.longitude,
+      };
+      mainTripList(
+        params,
+        ({ data }) => {
+          commit("SET_TRIP_LIST", data);
         },
         (error) => {
           console.log(error);

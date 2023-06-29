@@ -2,6 +2,7 @@ package com.ssafy.travelmaker.controller;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import com.ssafy.travelmaker.model.service.TripService;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/trip")
 @RestController
@@ -22,7 +24,7 @@ public class TripController {
 
 	@GetMapping("/data")
 	public ResponseEntity<?> data(TripDto trip) {
-		System.out.println(trip);
+		log.info(String.valueOf(trip));
 		return new ResponseEntity<List>(service.search(trip), HttpStatus.OK);
 	}
 }

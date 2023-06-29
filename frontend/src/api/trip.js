@@ -14,4 +14,8 @@ function tripList(params, success, fail) {
   api.get(`/trip/data`, { params: params }).then(success).catch(fail);
 }
 
-export { sidoList, gugunList, tripList };
+function mainTripList(params, success, fail) {
+  api.get(`/`, { params: params }).then(success).catch(fail);
+}
+
+export { sidoList, gugunList, tripList, mainTripList };

@@ -104,7 +104,7 @@ export default {
     ...mapState(tripStore, ["trips"]),
   },
   methods: {
-    ...mapActions(tripStore, ["getTripList"]),
+    ...mapActions(tripStore, ["getMainTripList"]),
     getCurrentPosition() {
       navigator.geolocation.getCurrentPosition(
         this.getPositionSuccess,
@@ -118,7 +118,7 @@ export default {
         latitude,
         longitude,
       };
-      this.getTripList(params);
+      this.getMainTripList(params);
     },
     getPositionError() {
       alert("위치를 찾을 수 없습니다.");

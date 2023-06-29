@@ -23,22 +23,29 @@
     <if test="title != null and title != ''">
         AND title LIKE CONCAT('%', #{title}, '%')
     </if>
-	<if test="latitude != 0.0 and longitude != 0.0">
-        AND <![CDATA[
-	        (
-	            6371 * 2 * ASIN(
-	                SQRT(
-	                    POWER(SIN((RADIANS(latitude) - RADIANS(${latitude})) / 2), 2) +
-	                    COS(RADIANS(${latitude})) * COS(RADIANS(latitude)) *
-	                    POWER(SIN((RADIANS(longitude) - RADIANS(${longitude})) / 2), 2)
-	                )
-	            )
-	        ) <= 1
-	     ]]>
-    </if>
+
     LIMIT 9
 </select>
 
+<select id="main" parameterType="DirectionDto" resultType="MainTripDto">
+    SELECT *
+    FROM attraction_info
+    WHERE 1=1
+    <if test="latitude != 0.0 and longitude != 0.0">
+        AND <![CDATA[
+        (
+            6371 * 2 * ASIN(
+                SQRT(
+                    POWER(SIN((RADIANS(latitude) - RADIANS(${latitude})) / 2), 2) +
+                    COS(RADIANS(${latitude})) * COS(RADIANS(latitude)) *
+                    POWER(SIN((RADIANS(longitude) - RADIANS(${longitude})) / 2), 2)
+                )
+            )
+        ) <= 1
+     ]]>
+    </if>
+    LIMIT 9
+</select>
 </mapper>    
 
 
