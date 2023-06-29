@@ -2,6 +2,7 @@ package com.ssafy.travelmaker.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import io.swagger.annotations.ApiParam;
 //http://localhost:9999/vue/swagger-ui.html
 //@CrossOrigin(origins = { "*" }, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.POST} , maxAge = 6000)
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/board")
 @Api("게시판 컨트롤러  API V1")
 public class BoardController {
@@ -40,8 +42,7 @@ public class BoardController {
 	@Value("${file.imgPath}")
 	private String uploadPath;
 
-	@Autowired
-	private BoardService boardService;
+	private final BoardService boardService;
 
 	@ApiOperation(value = "게시판 글작성", notes = "새로운 게시글 정보를 입력한다. 그리고 DB입력 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PostMapping

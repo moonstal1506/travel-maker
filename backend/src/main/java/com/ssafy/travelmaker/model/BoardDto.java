@@ -27,5 +27,4 @@ public class BoardDto {
 	@ApiModelProperty(value = "이미지 파일")
 	private MultipartFile[] fileup;
 
-
 }

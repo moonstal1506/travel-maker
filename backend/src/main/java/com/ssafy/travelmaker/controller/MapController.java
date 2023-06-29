@@ -3,6 +3,7 @@ package com.ssafy.travelmaker.controller;
 import java.util.List;
 
 import com.ssafy.travelmaker.model.service.MapService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/map")
 @Api("Map 컨트롤러  API V1")
 public class MapController {
 
 	private final Logger logger = LoggerFactory.getLogger(MapController.class);
 
-	@Autowired
-	private MapService mapService;
+	private final MapService mapService;
 
 	@ApiOperation(value = "시도 정보", notes = "전국의 시도를 반환한다.", response = List.class)
 	@GetMapping("/sido")

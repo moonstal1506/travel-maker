@@ -2,8 +2,8 @@ package com.ssafy.travelmaker.model.service;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,11 +12,11 @@ import com.ssafy.travelmaker.model.BoardParameterDto;
 import com.ssafy.travelmaker.model.mapper.QnaMapper;
 import com.ssafy.util.PageNavigation;
 
+@RequiredArgsConstructor
 @Service
-public class QnaSeviceImpl implements QnaService {
+public class QnaServiceImpl implements QnaService {
 	
-	@Autowired
-	private SqlSession sqlSession;
+	private final SqlSession sqlSession;
 
 	@Override
 	public boolean writeArticle(BoardDto boardDto) throws Exception {

@@ -2,6 +2,7 @@ package com.ssafy.travelmaker.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import io.swagger.annotations.ApiParam;
 //http://localhost:9999/vue/swagger-ui.html
 //@CrossOrigin(origins = { "*" }, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.POST} , maxAge = 6000)
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/hotplace")
 @Api("게시판 컨트롤러  API V1")
 public class HotPlaceController {
@@ -36,8 +38,7 @@ public class HotPlaceController {
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
 
-	@Autowired
-	private HotPlaceService hotplaceService;
+	private final HotPlaceService hotplaceService;
 
 	@ApiOperation(value = "게시판 글작성", notes = "새로운 게시글 정보를 입력한다. 그리고 DB입력 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PostMapping
@@ -56,6 +57,7 @@ public class HotPlaceController {
 			@ApiParam(value = "게시글을 얻기위한 부가정보.", required = true) HotPlaceParameterDto hotplaceParameterDto)
 			throws Exception {
 		logger.info("listArticle - 호출");
+		System.out.println(hotplaceParameterDto);
 		return new ResponseEntity<List<HotPlaceDto>>(hotplaceService.listArticle(hotplaceParameterDto), HttpStatus.OK);
 	}
 

@@ -3,6 +3,7 @@ package com.ssafy.travelmaker.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import com.ssafy.travelmaker.exception.UnAuthorizedException;
 import com.ssafy.travelmaker.model.service.JwtService;
 
+@RequiredArgsConstructor
 @Component
 public class JwtInterceptor implements HandlerInterceptor {
 
@@ -19,8 +21,7 @@ public class JwtInterceptor implements HandlerInterceptor {
 
 	private static final String HEADER_AUTH = "auth-token";
 
-	@Autowired
-	private JwtService jwtService;
+	private final JwtService jwtService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

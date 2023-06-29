@@ -17,8 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class TripServiceImpl implements TripService {
 	
-	@Autowired
-	private SqlSession sqlSession;
+	private final SqlSession sqlSession;
 	
 	@Override
 	public List<TripDto> search(TripDto trip) {
