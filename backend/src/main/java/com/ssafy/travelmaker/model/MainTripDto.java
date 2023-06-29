@@ -10,4 +10,5 @@ public class MainTripDto {
     private String addr2;
     private double latitude;
     private double longitude;
+    private double distance;
 }

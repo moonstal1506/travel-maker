@@ -1,7 +1,6 @@
 package com.ssafy.travelmaker.model.service;
 
 import com.ssafy.travelmaker.exception.TripException;
-import com.ssafy.travelmaker.model.DirectionDto;
 import com.ssafy.travelmaker.model.MainTripDto;
 import com.ssafy.travelmaker.model.TripDto;
 import com.ssafy.travelmaker.model.mapper.TripMapper;
@@ -29,9 +28,9 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
-    public List<MainTripDto> main(DirectionDto direction) {
+    public List<MainTripDto> findAll() {
         try {
-            return sqlSession.getMapper(TripMapper.class).main(direction);
+            return sqlSession.getMapper(TripMapper.class).findAll();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new TripException(e.getMessage());
