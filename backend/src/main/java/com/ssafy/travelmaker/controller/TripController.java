@@ -20,11 +20,12 @@ import lombok.RequiredArgsConstructor;
 @RestController
 public class TripController {
 
-	private final TripService service;
+	private final TripService tripService;
 
 	@GetMapping("/data")
 	public ResponseEntity<?> data(TripDto trip) {
 		log.info(String.valueOf(trip));
-		return new ResponseEntity<List>(service.search(trip), HttpStatus.OK);
+		return new ResponseEntity<List>(tripService.search(trip), HttpStatus.OK);
 	}
+
 }

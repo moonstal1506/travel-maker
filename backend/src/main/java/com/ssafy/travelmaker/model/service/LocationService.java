@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class DirectionService {
+public class LocationService {
 
     private static final int MAX_SEARCH_COUNT = 9;
     private static final double RADIUS_KM = 10.0;

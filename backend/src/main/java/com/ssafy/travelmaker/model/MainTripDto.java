@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class MainTripDto {
+    private int contentId;
     private String title;
     private String first_image;
     private String addr1;
